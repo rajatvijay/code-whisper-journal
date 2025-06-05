@@ -1,11 +1,9 @@
-
 import { useState } from 'react';
 import BlogLayout from '@/components/BlogLayout';
 import BlogCard from '@/components/BlogCard';
 import BlogPost from '@/components/BlogPost';
-import { Search, Filter } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 
 // Sample blog data
 const blogPosts = [
@@ -226,19 +224,12 @@ try {
 const Index = () => {
   const [selectedPost, setSelectedPost] = useState<typeof blogPosts[0] | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  // Get all unique tags
-  const allTags = Array.from(
-    new Set(blogPosts.flatMap(post => post.tags))
-  );
-
-  // Filter posts based on search and tags
+  // Filter posts based on search only
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTag = !selectedTag || post.tags.includes(selectedTag);
-    return matchesSearch && matchesTag;
+    return matchesSearch;
   });
 
   if (selectedPost) {
@@ -263,10 +254,10 @@ const Index = () => {
           </p>
         </section>
 
-        {/* Search and Filter */}
+        {/* Search Only */}
         <section className="mb-12 animate-slide-up stagger-1">
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-            <div className="relative flex-1 max-w-md">
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 type="text"
@@ -275,29 +266,6 @@ const Index = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 bg-background border-border focus:border-primary"
               />
-            </div>
-            
-            <div className="flex items-center gap-2 flex-wrap">
-              <Filter className="w-4 h-4 text-muted-foreground" />
-              <Button
-                variant={selectedTag === null ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedTag(null)}
-                className="text-xs"
-              >
-                All
-              </Button>
-              {allTags.map((tag) => (
-                <Button
-                  key={tag}
-                  variant={selectedTag === tag ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
-                  className="text-xs"
-                >
-                  {tag}
-                </Button>
-              ))}
             </div>
           </div>
         </section>
@@ -322,7 +290,7 @@ const Index = () => {
                 No articles found
               </p>
               <p className="text-muted-foreground">
-                Try adjusting your search terms or filter settings.
+                Try adjusting your search terms.
               </p>
             </div>
           )}
