@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,87 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "liga" 1, "calt" 1;
   }
+
+  /* Improved focus visibility for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+
+  /* Code styling */
+  code {
+    @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded;
+  }
+
+  pre code {
+    @apply bg-transparent p-0 rounded-none;
+  }
+
+  pre {
+    @apply bg-muted p-4 rounded-lg overflow-x-auto text-sm font-mono;
+    line-height: 1.6;
+  }
+
+  /* Link styling with subtle animation */
+  .prose-link {
+    @apply text-primary underline-offset-4 decoration-1 transition-all duration-200;
+    text-decoration-line: underline;
+    text-decoration-color: hsl(var(--muted-foreground));
+  }
+
+  .prose-link:hover {
+    text-decoration-color: hsl(var(--primary));
+    @apply decoration-2;
+  }
+
+  /* Custom selection styling */
+  ::selection {
+    @apply bg-primary/20;
+  }
+
+  /* Reading progress bar */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)/0.7));
+    z-index: 50;
+    transition: width 0.1s ease-out;
+  }
+
+  /* Micro-interactions */
+  .hover-lift {
+    @apply transition-transform duration-200 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 ease-out;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 10px 25px -5px hsl(var(--primary)/0.1), 0 8px 10px -6px hsl(var(--primary)/0.1);
+  }
+
+  /* Staggered animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
 }
