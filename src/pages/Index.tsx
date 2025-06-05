@@ -4,6 +4,7 @@ import BlogCard from '@/components/BlogCard';
 import BlogPost from '@/components/BlogPost';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 // Sample blog data
 const blogPosts = [
