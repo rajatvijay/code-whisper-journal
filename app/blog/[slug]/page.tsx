@@ -4,18 +4,18 @@ import BlogLayout from "../../../src/components/BlogLayout";
 import { getBlogPost, getAllBlogPosts } from "@/lib/markdown";
 import { notFound } from "next/navigation";
 
-// Generate static params for all blog posts at build time
+// Generate static params for all blog posts at build time using SEO-friendly slugs
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
   
   return posts.map((post) => ({
-    id: post.id,
+    slug: post.slug,
   }));
 }
 
 // Generate metadata for each blog post
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const post = await getBlogPost(params.id);
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post = await getBlogPost(params.slug);
   
   if (!post) {
     return {
@@ -34,12 +34,17 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       authors: [post.author.name],
       tags: post.tags,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
 // Static site generation - this runs at build time
-export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const post = await getBlogPost(params.id);
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = await getBlogPost(params.slug);
 
   if (!post) {
     notFound();

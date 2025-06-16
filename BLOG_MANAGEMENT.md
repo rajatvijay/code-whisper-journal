@@ -85,12 +85,25 @@ The blog will now:
 - **Zero client-side requests**: Everything pre-rendered = **INSTANT** ⚡
 - **CDN ready**: Static HTML/CSS/JS can be cached globally = **GLOBAL SPEED** 🌍
 
-## 📝 File Naming Convention
+## 📝 SEO-Friendly URLs & File Naming
 
-- Use kebab-case: `my-awesome-post.md`
-- Be descriptive: `react-hooks-complete-guide.md`
-- Avoid spaces and special characters
-- The filename becomes the slug: `/blog/react-hooks-complete-guide`
+### URL Structure
+Your blog now uses SEO-friendly URLs based on filenames:
+- ✅ **Good**: `/blog/react-typescript-scalable-apps`
+- ❌ **Bad**: `/blog/1` 
+
+### File Naming Convention
+- **Use kebab-case**: `my-awesome-post.md`
+- **Be descriptive**: `react-hooks-complete-guide.md`
+- **Include keywords**: `nextjs-ssg-performance-guide.md`
+- **Avoid spaces and special characters**
+- **Keep it concise but clear**
+
+### SEO Benefits
+- 🔍 **Better search rankings**: Keywords in URL boost SEO
+- 👥 **User-friendly**: Readable URLs build trust
+- 🔗 **Link sharing**: Descriptive URLs are more shareable
+- 📱 **Social media**: Better preview text when shared
 
 ## 🏷️ Frontmatter Fields
 
@@ -109,6 +122,32 @@ The blog will now:
 2. **Update**: Run `pnpm run blog:update`
 3. **Preview**: Start dev server with `pnpm dev`
 4. **Publish**: Commit both the `.md` file and updated `blog-index.json`
+
+## 🚀 Quick Start Example
+
+Here's how to add a new blog post with SEO-friendly URLs:
+
+```bash
+# 1. Create SEO-friendly filename
+echo "---
+title: 'Advanced React Performance Tips'
+excerpt: 'Learn how to optimize React apps for better performance'
+date: '2024-03-20'
+tags: ['React', 'Performance', 'Optimization']
+---
+# Your amazing content here
+
+Learn how to make React blazing fast!" > content/blog/advanced-react-performance-tips.md
+
+# 2. Update metadata index  
+pnpm run blog:update
+
+# 3. Build static site
+pnpm build
+
+# 4. Your SEO-friendly URL is now live!
+# ✅ https://yourdomain.com/blog/advanced-react-performance-tips
+```
 
 ## 🛠️ Advanced Usage
 

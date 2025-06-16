@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const contentDir = path.join(__dirname, '../content/blog');
 const indexPath = path.join(__dirname, '../content/blog-index.json');
@@ -81,9 +85,9 @@ async function updateBlogIndex() {
   }
 }
 
-// Run if called directly
-if (require.main === module) {
+// Run if called directly (ES module check)
+if (import.meta.url === `file://${process.argv[1]}`) {
   updateBlogIndex();
 }
 
-module.exports = { updateBlogIndex };
+export { updateBlogIndex };

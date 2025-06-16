@@ -61,8 +61,8 @@ export default function IndexClient({ posts }: IndexClientProps) {
                 key={post.id}
                 className={`animate-slide-up stagger-${Math.min(index + 2, 4)}`}
               >
-                <a href={`/blog/${post.id}`}>
-                  <BlogCard {...post} slug={`/blog/${post.id}`} />
+                <a href={`/blog/${post.slug}`}>
+                  <BlogCard {...post} slug={`/blog/${post.slug}`} />
                 </a>
               </div>
             ))}

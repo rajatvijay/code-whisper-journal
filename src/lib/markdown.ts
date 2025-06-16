@@ -44,9 +44,9 @@ export async function getBlogPost(slugOrId: string): Promise<BlogPost | null> {
     const indexContents = fs.readFileSync(blogIndexPath, 'utf8');
     const posts = JSON.parse(indexContents);
     
-    // Find the post by ID or slug
+    // Find the post by slug first (SEO-friendly), then by ID for backward compatibility
     const postMeta = posts.find((post: any) => 
-      post.id === slugOrId || post.slug === slugOrId
+      post.slug === slugOrId || post.id === slugOrId
     );
 
     if (!postMeta) {
