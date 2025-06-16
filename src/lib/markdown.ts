@@ -1,0 +1,95 @@
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  tags: string[];
+  author: {
+    name: string;
+    avatar: string;
+  };
+  content?: string;
+  slug: string;
+}
+
+const contentDirectory = path.join(process.cwd(), 'content/blog');
+const blogIndexPath = path.join(process.cwd(), 'content/blog-index.json');
+
+// Get all blog post metadata (for index page) - FAST: reads only JSON file
+export async function getAllBlogPosts(): Promise<Omit<BlogPost, 'content'>[]> {
+  try {
+    const indexContents = fs.readFileSync(blogIndexPath, 'utf8');
+    const posts = JSON.parse(indexContents);
+    
+    // Sort by date (newest first)
+    return posts.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('Error reading blog index:', error);
+    return [];
+  }
+}
+
+// Get a single blog post with content (for individual post page)
+export async function getBlogPost(slugOrId: string): Promise<BlogPost | null> {
+  try {
+    // First, get metadata from the index
+    const indexContents = fs.readFileSync(blogIndexPath, 'utf8');
+    const posts = JSON.parse(indexContents);
+    
+    // Find the post by ID or slug
+    const postMeta = posts.find((post: any) => 
+      post.id === slugOrId || post.slug === slugOrId
+    );
+
+    if (!postMeta) {
+      return null;
+    }
+
+    // Read the actual markdown file using the slug
+    const markdownPath = path.join(contentDirectory, `${postMeta.slug}.md`);
+    
+    if (!fs.existsSync(markdownPath)) {
+      console.error(`Markdown file not found: ${markdownPath}`);
+      return null;
+    }
+
+    const fileContents = fs.readFileSync(markdownPath, 'utf8');
+    const { content } = matter(fileContents);
+
+    // Process markdown to HTML
+    const processedContent = await remark()
+      .use(remarkGfm)
+      .use(remarkHtml)
+      .process(content);
+
+    return {
+      ...postMeta,
+      content: processedContent.toString()
+    };
+  } catch (error) {
+    console.error('Error reading blog post:', error);
+    return null;
+  }
+}
+
+// Generate numeric ID from slug for backward compatibility
+function generateIdFromSlug(slug: string): number {
+  // Simple hash function to generate consistent numeric IDs from slugs
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    const char = slug.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return Math.abs(hash) % 1000 + 1; // Keep IDs between 1-1000
+}
+
+// Note: Client-side functions removed - using SSG instead for optimal performance

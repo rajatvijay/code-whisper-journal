@@ -6,66 +6,20 @@ import BlogCard from '@/components/BlogCard';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import type { BlogPost } from '@/lib/markdown';
 
-// Sample blog data
-const blogPosts = [
-  {
-    id: 1,
-    title: "Building Scalable React Applications with TypeScript",
-    excerpt: "Explore advanced patterns and best practices for creating maintainable React applications using TypeScript. We'll dive into component architecture, state management, and performance optimization techniques.",
-    content: `
-      <h2>Introduction</h2>
-      <p>Building scalable React applications requires careful consideration of architecture, type safety, and performance. In this comprehensive guide, we'll explore proven patterns and techniques.</p>
-    `,
-    date: "2024-03-15",
-    readTime: "8 min read",
-    tags: ["React", "TypeScript", "Architecture", "Performance"],
-    author: {
-      name: "Rajat Vijay",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    }
-  },
-  {
-    id: 2,
-    title: "Advanced CSS Grid Techniques for Modern Layouts",
-    excerpt: "Master the art of CSS Grid with advanced techniques for creating complex, responsive layouts. Learn about grid areas, implicit grids, and dynamic sizing.",
-    content: `
-      <h2>CSS Grid Fundamentals</h2>
-      <p>CSS Grid revolutionized how we approach layout in web development. Let's explore some advanced techniques that go beyond the basics.</p>
-    `,
-    date: "2024-03-10",
-    readTime: "6 min read",
-    tags: ["CSS", "Grid", "Layout", "Responsive Design"],
-    author: {
-      name: "Rajat Vijay",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    }
-  },
-  {
-    id: 3,
-    title: "The Future of JavaScript: ES2024 Features",
-    excerpt: "Discover the latest JavaScript features coming in ES2024, including new array methods, improved error handling, and enhanced async capabilities.",
-    content: `
-      <h2>What's New in ES2024</h2>
-      <p>JavaScript continues to evolve, bringing new features that make development more efficient and code more readable.</p>
-    `,
-    date: "2024-03-05",
-    readTime: "5 min read",
-    tags: ["JavaScript", "ES2024", "Features", "Modern JS"],
-    author: {
-      name: "Rajat Vijay",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    }
-  }
-];
+interface IndexClientProps {
+  posts: Omit<BlogPost, 'content'>[];
+}
 
-const Index = () => {
+export default function IndexClient({ posts }: IndexClientProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Filter posts based on search only
-  const filteredPosts = blogPosts.filter(post => {
+  const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         post.tags.some((tag: string) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesSearch;
   });
 
@@ -92,7 +46,7 @@ const Index = () => {
                 type="text"
                 placeholder="Search articles..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                 className="pl-10 bg-background border-border focus:border-primary"
               />
             </div>
@@ -151,6 +105,4 @@ const Index = () => {
       </div>
     </BlogLayout>
   );
-};
-
-export default Index;
+}

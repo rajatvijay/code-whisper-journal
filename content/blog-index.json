@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "slug": "react-typescript-scalable-apps",
+    "title": "Building Scalable React Applications with TypeScript",
+    "excerpt": "Explore advanced patterns and best practices for creating maintainable React applications using TypeScript. We'll dive into component architecture, state management, and performance optimization techniques.",
+    "date": "2024-03-15",
+    "readTime": "8 min read",
+    "tags": ["React", "TypeScript", "Architecture", "Performance"],
+    "author": {
+      "name": "Rajat Vijay",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    }
+  },
+  {
+    "id": "2",
+    "slug": "css-grid-modern-layouts",
+    "title": "Advanced CSS Grid Techniques for Modern Layouts",
+    "excerpt": "Master the art of CSS Grid with advanced techniques for creating complex, responsive layouts. Learn about grid areas, implicit grids, and dynamic sizing.",
+    "date": "2024-03-10",
+    "readTime": "6 min read",
+    "tags": ["CSS", "Grid", "Layout", "Responsive Design"],
+    "author": {
+      "name": "Rajat Vijay",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    }
+  },
+  {
+    "id": "3",
+    "slug": "javascript-es2024-features",
+    "title": "The Future of JavaScript: ES2024 Features",
+    "excerpt": "Discover the latest JavaScript features coming in ES2024, including new array methods, improved error handling, and enhanced async capabilities.",
+    "date": "2024-03-05",
+    "readTime": "5 min read",
+    "tags": ["JavaScript", "ES2024", "Features", "Modern JS"],
+    "author": {
+      "name": "Rajat Vijay",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    }
+  }
+]
