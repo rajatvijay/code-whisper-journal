@@ -2,18 +2,8 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const BlogPost = dynamic(() => import("../../../src/components/BlogPost"), { 
-  ssr: false,
-  loading: () => <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="text-foreground">Loading...</div>
-  </div>
-});
-
-const BlogLayout = dynamic(() => import("../../../src/components/BlogLayout"), { 
-  ssr: false
-});
+import BlogPost from "../../../src/components/BlogPost";
+import BlogLayout from "../../../src/components/BlogLayout";
 
 // Blog posts data (in a real app, this would come from a database or API)
 const blogPosts = [

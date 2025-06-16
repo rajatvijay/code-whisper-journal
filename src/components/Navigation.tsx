@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

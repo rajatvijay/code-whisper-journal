@@ -1,4 +1,6 @@
-import { useState } from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import BlogLayout from '@/components/BlogLayout';
 import BlogCard from '@/components/BlogCard';
 import { Search } from 'lucide-react';
