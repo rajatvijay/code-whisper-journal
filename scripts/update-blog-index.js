@@ -57,6 +57,7 @@ async function updateBlogIndex() {
         excerpt: data.excerpt || '',
         date: data.date || '',
         readTime: data.readTime || '5 min read',
+        category: data.category || 'General Thoughts',
         tags: data.tags || [],
         author: data.author || {
           name: 'Rajat Vijay',

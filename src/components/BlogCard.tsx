@@ -7,11 +7,12 @@ interface BlogCardProps {
   excerpt: string;
   date: string;
   readTime: string;
+  category: string;
   tags: string[];
   slug: string;
 }
 
-const BlogCard = ({ title, excerpt, date, readTime, tags, slug }: BlogCardProps) => {
+const BlogCard = ({ title, excerpt, date, readTime, category, tags, slug }: BlogCardProps) => {
   return (
     <Card className="hover-lift hover-glow group cursor-pointer transition-all duration-300 border-border/50 hover:border-border">
       <CardHeader className="pb-4">
@@ -27,6 +28,11 @@ const BlogCard = ({ title, excerpt, date, readTime, tags, slug }: BlogCardProps)
             <Clock className="w-4 h-4" />
             <span>{readTime}</span>
           </div>
+        </div>
+        <div className="flex items-center justify-between mb-2">
+          <span className="inline-block px-2.5 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
+            {category}
+          </span>
         </div>
         <h3 className="text-xl font-serif font-semibold leading-tight text-foreground group-hover:text-primary transition-colors duration-200">
           {title}

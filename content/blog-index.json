@@ -3,15 +3,16 @@
     "id": "331",
     "slug": "my-first-peek-into-deep-learning",
     "title": "My First Peek into Deep Learning (And It Wasn't That Scary)",
-    "excerpt": "Following the fast.ai course and sharing my journey into deep learning in plain English - from neural networks to avoiding overfitting.",
-    "date": "2024-03-20",
-    "readTime": "8 min read",
+    "excerpt": "Following the fast.ai course and sharing my journey into deep learning in plain English — from neural networks to avoiding overfitting.",
+    "date": "2024-03-20T00:00:00.000Z",
+    "readTime": "5 min read",
+    "category": "Deep Learning",
     "tags": [
-      "Deep Learning",
-      "AI",
-      "Machine Learning",
-      "Beginner",
-      "Fast.ai"
+      "deep-learning",
+      "ai",
+      "machine-learning",
+      "beginner",
+      "fastai"
     ],
     "author": {
       "name": "Rajat Vijay",

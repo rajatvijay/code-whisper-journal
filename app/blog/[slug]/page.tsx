@@ -3,6 +3,7 @@ import BlogPost from "../../../src/components/BlogPost";
 import BlogLayout from "../../../src/components/BlogLayout";
 import { getBlogPost, getAllBlogPosts } from "@/lib/markdown";
 import { notFound } from "next/navigation";
+import { BlogPostStructuredData, BreadcrumbStructuredData } from "../../../components/StructuredData";
 
 // Generate static params for all blog posts at build time using SEO-friendly slugs
 export async function generateStaticParams() {
@@ -14,8 +15,9 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for each blog post
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
   
   if (!post) {
     return {
@@ -43,16 +45,33 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // Static site generation - this runs at build time
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = await getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
     notFound();
   }
 
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://code-whisper-journal.vercel.app' },
+    { name: 'Blog', url: 'https://code-whisper-journal.vercel.app/#blog' },
+    { name: post.title, url: `https://code-whisper-journal.vercel.app/blog/${post.slug}` }
+  ];
+
   return (
     <BlogLayout>
-      <BlogPost {...post} />
+      <BlogPostStructuredData
+        title={post.title}
+        excerpt={post.excerpt}
+        date={post.date}
+        slug={post.slug}
+        readingTime={post.readTime}
+        tags={post.tags}
+        author={post.author}
+      />
+      <BreadcrumbStructuredData items={breadcrumbItems} />
+      <BlogPost {...post} content={post.content || ''} />
     </BlogLayout>
   );
 }

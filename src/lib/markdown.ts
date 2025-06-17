@@ -11,6 +11,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   readTime: string;
+  category: string;
   tags: string[];
   author: {
     name: string;
@@ -30,7 +31,7 @@ export async function getAllBlogPosts(): Promise<Omit<BlogPost, 'content'>[]> {
     const posts = JSON.parse(indexContents);
     
     // Sort by date (newest first)
-    return posts.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return posts.sort((a: BlogPost, b: BlogPost) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     console.error('Error reading blog index:', error);
     return [];
@@ -45,7 +46,7 @@ export async function getBlogPost(slugOrId: string): Promise<BlogPost | null> {
     const posts = JSON.parse(indexContents);
     
     // Find the post by slug first (SEO-friendly), then by ID for backward compatibility
-    const postMeta = posts.find((post: any) => 
+    const postMeta = posts.find((post: BlogPost) => 
       post.slug === slugOrId || post.id === slugOrId
     );
 
@@ -77,6 +78,36 @@ export async function getBlogPost(slugOrId: string): Promise<BlogPost | null> {
   } catch (error) {
     console.error('Error reading blog post:', error);
     return null;
+  }
+}
+
+// Get all unique categories from blog posts
+export async function getAllCategories(): Promise<string[]> {
+  try {
+    const indexContents = fs.readFileSync(blogIndexPath, 'utf8');
+    const posts = JSON.parse(indexContents);
+    
+    const categories = posts
+      .map((post: BlogPost) => post.category)
+      .filter((category: string) => category)
+      .filter((category: string, index: number, array: string[]) => array.indexOf(category) === index)
+      .sort();
+    
+    return categories;
+  } catch (error) {
+    console.error('Error reading categories:', error);
+    return [];
+  }
+}
+
+// Get blog posts by category
+export async function getBlogPostsByCategory(category: string): Promise<Omit<BlogPost, 'content'>[]> {
+  try {
+    const allPosts = await getAllBlogPosts();
+    return allPosts.filter(post => post.category === category);
+  } catch (error) {
+    console.error('Error filtering posts by category:', error);
+    return [];
   }
 }
 
