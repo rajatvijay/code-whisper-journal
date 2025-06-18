@@ -87,7 +87,7 @@ export default function IndexClient({ posts }: IndexClientProps) {
                 {selectedCategory === "All" ? "All Articles" : `${selectedCategory} Articles`} 
                 ({filteredPosts.length} found{searchTerm ? ` matching "${searchTerm}"` : ""})
               </h2>
-              <div className="grid gap-6 sm:gap-8">
+              <div className="grid gap-4 sm:gap-6 md:gap-8">
                 {filteredPosts.map((post, index) => (
                   <div 
                     key={post.id}
