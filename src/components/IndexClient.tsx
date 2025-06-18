@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import BlogLayout from '@/components/BlogLayout';
 import BlogCard from '@/components/BlogCard';
+import NewsletterSubscription from '../../components/NewsletterSubscription';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -132,34 +133,7 @@ export default function IndexClient({ posts }: IndexClientProps) {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="mt-20 p-8 bg-muted/30 rounded-2xl text-center animate-slide-up stagger-4" role="complementary" aria-label="Newsletter subscription">
-          <h2 className="text-2xl font-serif font-semibold text-foreground mb-4">
-            Stay Updated
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Get notified when I publish new insights on learning machines, mastering self, and shaping teams.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" aria-label="Newsletter subscription form">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 bg-background border-border focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              aria-label="Email address for newsletter"
-              aria-describedby="newsletter-privacy"
-              required
-            />
-            <Button 
-              type="submit" 
-              className="whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              aria-describedby="newsletter-privacy"
-            >
-              Subscribe
-            </Button>
-          </form>
-          <p id="newsletter-privacy" className="text-xs text-muted-foreground mt-3">
-            No spam, unsubscribe at any time.
-          </p>
-        </section>
+        <NewsletterSubscription />
       </div>
     </BlogLayout>
   );
