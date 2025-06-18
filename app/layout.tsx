@@ -1,54 +1,44 @@
 import React from "react";
 import "./globals.css";
 import type { Metadata } from 'next'
+import { siteConfig } from '../config/site';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Logs & Gains',
-    default: 'Logs & Gains - Changing the architecture within'
+    template: `%s | ${siteConfig.name}`,
+    default: siteConfig.title
   },
-  description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
-  keywords: [
-    'web development',
-    'programming',
-    'javascript',
-    'react',
-    'nextjs',
-    'design',
-    'user experience',
-    'tech blog',
-    'software engineering',
-    'frontend development'
-  ],
-  authors: [{ name: 'Rajat Vijay', url: 'https://twitter.com/rajatvijay' }],
-  creator: 'Rajat Vijay',
-  publisher: 'Rajat Vijay',
-  metadataBase: new URL('https://rajatvijay.in'),
+  description: siteConfig.description,
+  keywords: [...siteConfig.seo.keywords],
+  authors: [{ name: siteConfig.author.name, url: siteConfig.social.twitter }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
+  metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://rajatvijay.in',
-    siteName: 'Logs & Gains',
-    title: 'Logs & Gains - Changing the architecture within',
-    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
+    type: siteConfig.seo.openGraph.type,
+    locale: siteConfig.seo.openGraph.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.seo.openGraph.siteName,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
         url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Code-Whisper Journal'
+        width: siteConfig.seo.openGraph.imageWidth,
+        height: siteConfig.seo.openGraph.imageHeight,
+        alt: siteConfig.name
       }
     ]
   },
   twitter: {
-    card: 'summary_large_image',
-    site: '@rajatvijay',
-    creator: '@rajatvijay',
-    title: 'Logs & Gains - Changing the architecture within',
-    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
+    card: siteConfig.seo.twitter.cardType,
+    site: siteConfig.seo.twitter.site,
+    creator: siteConfig.seo.twitter.handle,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: ['/og-image.png']
   },
   robots: {
@@ -69,7 +59,7 @@ export const metadata: Metadata = {
   classification: 'Technology Blog',
   referrer: 'origin-when-cross-origin',
   generator: 'Next.js',
-  applicationName: 'Logs & Gains',
+  applicationName: siteConfig.name,
   manifest: '/manifest.json',
   icons: {
     icon: [

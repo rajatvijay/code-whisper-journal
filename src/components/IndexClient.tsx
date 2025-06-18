@@ -8,6 +8,7 @@ import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/markdown';
+import { siteConfig } from '../../config/site';
 
 interface IndexClientProps {
   posts: Omit<BlogPost, 'content'>[];
@@ -38,11 +39,11 @@ export default function IndexClient({ posts }: IndexClientProps) {
         {/* Hero Section */}
         <section className="text-center mb-16 animate-fade-in" role="banner">
           <h1 className="text-5xl md:text-6xl font-serif font-semibold text-foreground mb-6 leading-tight">
-            Logs & Gains
+            {siteConfig.name}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Changing the architecture within.<br />
-            Notes on learning machines, mastering self, and shaping teams.
+            {siteConfig.tagline}.<br />
+            {siteConfig.description.split('. ')[1]}.
           </p>
         </section>
 

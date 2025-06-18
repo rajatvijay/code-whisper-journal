@@ -1,24 +1,25 @@
 import { getAllBlogPosts } from '@/lib/markdown'
+import { siteConfig } from '../../config/site'
 
 export async function GET() {
   const posts = await getAllBlogPosts()
-  const baseUrl = 'https://rajatvijay.in'
+  const baseUrl = siteConfig.url
   
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Logs & Gains</title>
-    <description>Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.</description>
+    <title>{siteConfig.name}</title>
+    <description>{siteConfig.description}</description>
     <link>${baseUrl}</link>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <managingEditor>rajat@example.com (Rajat Vijay)</managingEditor>
-    <webMaster>rajat@example.com (Rajat Vijay)</webMaster>
+    <managingEditor>{siteConfig.author.email} ({siteConfig.author.name})</managingEditor>
+    <webMaster>{siteConfig.author.email} ({siteConfig.author.name})</webMaster>
     <ttl>60</ttl>
     <image>
       <url>${baseUrl}/logo.png</url>
-      <title>Logs & Gains</title>
+      <title>{siteConfig.name}</title>
       <link>${baseUrl}</link>
       <width>32</width>
       <height>32</height>
@@ -33,7 +34,7 @@ export async function GET() {
       <link>${baseUrl}/blog/${post.slug}</link>
       <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <author>${post.author?.name || 'Rajat Vijay'}</author>
+      <author>${post.author?.name || siteConfig.author.name}</author>
       ${post.tags?.map(tag => `<category>${tag}</category>`).join('') || ''}
     </item>`
       )

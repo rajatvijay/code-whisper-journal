@@ -1,7 +1,8 @@
 import { getAllBlogPosts } from '@/lib/markdown'
+import { siteConfig } from '../config/site'
 
 export default async function sitemap() {
-  const baseUrl = 'https://rajatvijay.in'
+  const baseUrl = siteConfig.url
   
   // Get all blog posts
   const posts = await getAllBlogPosts()

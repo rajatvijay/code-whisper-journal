@@ -2,6 +2,7 @@ import React from "react";
 import IndexClient from "../src/components/IndexClient";
 import { getAllBlogPosts } from "@/lib/markdown";
 import { WebsiteStructuredData } from "../components/StructuredData";
+import { siteConfig } from '../config/site';
 
 // Server Component - runs at build time for SSG
 export default async function Home() {
@@ -12,9 +13,9 @@ export default async function Home() {
   return (
     <>
       <WebsiteStructuredData 
-        url="https://rajatvijay.in"
-        name="Logs & Gains"
-        description="Changing the architecture within. Notes on learning machines, mastering self, and shaping teams."
+        url={siteConfig.url}
+        name={siteConfig.name}
+        description={siteConfig.description}
       />
       <IndexClient posts={posts} />
     </>
@@ -27,11 +28,11 @@ export const dynamic = 'force-static';
 // Generate metadata
 export async function generateMetadata() {
   return {
-    title: 'Logs & Gains - Changing the architecture within',
-    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
+    title: siteConfig.title,
+    description: siteConfig.description,
     openGraph: {
-      title: 'Logs & Gains - Rajat Vijay',
-      description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
+      title: `${siteConfig.name} - ${siteConfig.author.name}`,
+      description: siteConfig.description,
       type: 'website',
     },
   };

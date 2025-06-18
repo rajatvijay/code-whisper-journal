@@ -1,10 +1,11 @@
 import { MetadataRoute } from 'next'
+import { siteConfig } from '../config/site'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Logs & Gains - Changing the architecture within',
-    short_name: 'Logs & Gains',
-    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
+    name: siteConfig.title,
+    short_name: siteConfig.name,
+    description: siteConfig.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
@@ -49,14 +50,14 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: '1280x720',
         type: 'image/png',
         form_factor: 'wide',
-        label: 'Logs & Gains homepage on desktop',
+        label: `${siteConfig.name} homepage on desktop`,
       },
       {
         src: '/screenshot-narrow.png',
         sizes: '390x844',
         type: 'image/png',
         form_factor: 'narrow',
-        label: 'Logs & Gains homepage on mobile',
+        label: `${siteConfig.name} homepage on mobile`,
       },
     ],
     shortcuts: [

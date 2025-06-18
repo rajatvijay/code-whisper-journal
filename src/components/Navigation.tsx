@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from '../../config/site';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +23,9 @@ const Navigation = () => {
             <a
               href="/"
               className="text-xl font-serif font-semibold text-foreground hover:text-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
-              aria-label="Logs & Gains - Home"
+              aria-label={`${siteConfig.name} - Home`}
             >
-              Logs & Gains
+              {siteConfig.name}
             </a>
           </div>
 

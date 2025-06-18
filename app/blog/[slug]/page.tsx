@@ -4,6 +4,7 @@ import BlogLayout from "../../../src/components/BlogLayout";
 import { getBlogPost, getAllBlogPosts } from "@/lib/markdown";
 import { notFound } from "next/navigation";
 import { BlogPostStructuredData, BreadcrumbStructuredData } from "../../../components/StructuredData";
+import { siteConfig } from '../../../config/site';
 
 // Generate static params for all blog posts at build time using SEO-friendly slugs
 export async function generateStaticParams() {
@@ -54,9 +55,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://rajatvijay.in' },
-    { name: 'Blog', url: 'https://rajatvijay.in/#blog' },
-    { name: post.title, url: `https://rajatvijay.in/blog/${post.slug}` }
+    { name: 'Home', url: siteConfig.url },
+    { name: 'Blog', url: `${siteConfig.url}/#blog` },
+    { name: post.title, url: `${siteConfig.url}/blog/${post.slug}` }
   ];
 
   return (

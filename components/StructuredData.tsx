@@ -1,5 +1,8 @@
 'use client'
 
+import React from 'react';
+import { siteConfig } from '../config/site';
+
 interface BlogPostStructuredDataProps {
   title: string
   excerpt: string
@@ -28,7 +31,7 @@ export function BlogPostStructuredData({
   tags,
   author
 }: BlogPostStructuredDataProps) {
-  const baseUrl = 'https://rajatvijay.in'
+  const baseUrl = siteConfig.url
   
   const structuredData = {
     '@context': 'https://schema.org',
@@ -44,13 +47,13 @@ export function BlogPostStructuredData({
     },
     author: {
       '@type': 'Person',
-      name: author?.name || 'Rajat Vijay',
-      url: 'https://twitter.com/rajatvijay',
+      name: author?.name || siteConfig.author.name,
+      url: siteConfig.social.twitter,
       image: author?.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Logs & Gains',
+      name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
@@ -103,13 +106,13 @@ export function WebsiteStructuredData({ url, name, description }: WebsiteStructu
       name: 'Rajat Vijay',
       url: 'https://twitter.com/rajatvijay',
       sameAs: [
-        'https://twitter.com/rajatvijay',
-        'https://github.com/rajatvijay'
+        siteConfig.social.twitter,
+        siteConfig.social.github
       ]
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Logs & Gains',
+      name: siteConfig.name,
       logo: {
         '@type': 'ImageObject',
         url: `${url}/logo.png`,

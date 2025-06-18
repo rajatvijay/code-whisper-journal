@@ -1,5 +1,7 @@
 
+import React from 'react';
 import Navigation from './Navigation';
+import { siteConfig } from '../../config/site';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -18,16 +20,16 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
             <h3 className="text-lg font-serif font-semibold text-foreground mb-4">
-              Logs & Gains
+              {siteConfig.name}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.
+              {siteConfig.description}
             </p>
             <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
-              <a href="https://twitter.com/rajatvijay" className="prose-link" target="_blank" rel="noopener noreferrer">Twitter</a>
-              <a href="https://github.com/rajatvijay" className="prose-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://linkedin.com/in/rajat-vijay" className="prose-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://rajatvijay.in/feed.xml" className="prose-link">RSS</a>
+              <a href={siteConfig.social.twitter} className="prose-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href={siteConfig.social.github} className="prose-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href={siteConfig.social.linkedin} className="prose-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href={`${siteConfig.url}/feed.xml`} className="prose-link">RSS</a>
             </div>
           </div>
         </div>
