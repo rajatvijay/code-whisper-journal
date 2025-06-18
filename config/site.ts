@@ -15,9 +15,9 @@ export const siteConfig = {
     name: "Rajat Vijay",
     email: "rajat@rajatvijay.in",
     avatar: "/images/profile-avatar.jpeg",
-    bio: "I'm a passionate software developer and tech enthusiast who loves exploring the latest in web development, AI, and emerging technologies. With expertise in modern JavaScript frameworks, cloud technologies, and full-stack development, I enjoy building innovative solutions that make a difference.",
+    bio: "Innovative Engineering Leader with 8+ years of experience in frontend engineering and React.js development. Speaker at React India 2024, passionate about cutting-edge technology and performance optimization.",
     longBio:
-      "Through this blog, I share my journey in tech, interesting discoveries, code experiments, and insights from my development experiences. I believe in continuous learning and enjoy connecting with fellow developers to exchange ideas and knowledge.",
+      "I work at Certa.ai as a technology leader, focusing on React ecosystem, developer productivity, and performance engineering. I'm excited about AI-driven development tools and have contributed to open-source projects like devtools-highlighter and YouTube Repeat Player React component. Through this blog, I share insights on learning machines, mastering self, and shaping teams.",
   },
 
   // Social media links
@@ -98,7 +98,44 @@ export const siteConfig = {
     ],
   },
 
-  // Content topics for About page
+  // About page configuration
+  about: {
+    title: "About Me",
+    subtitle: "Engineering Leader, React enthusiast, and speaker exploring the intersection of performance optimization and developer experience.",
+    sections: {
+      topics: {
+        title: "What I Write About",
+        items: [
+          {
+            title: "Deep Learning & AI",
+            description:
+              "Exploring machine learning, neural networks, and artificial intelligence applications",
+          },
+          {
+            title: "Personal Development",
+            description:
+              "Insights on self-improvement, productivity, and continuous learning",
+          },
+          {
+            title: "Team Leadership",
+            description:
+              "Building effective teams, leadership principles, and organizational culture",
+          },
+          {
+            title: "Health & Wellness",
+            description:
+              "Physical and mental health practices for sustainable performance",
+          },
+        ]
+      },
+      contact: {
+        title: "Get in Touch",
+        description: "I'm always interested in connecting with fellow developers, discussing React performance optimization, AI-driven development tools, and sharing knowledge about engineering leadership. Feel free to reach out through any of the channels below."
+      }
+    }
+  },
+  
+  // Legacy topics reference (for backward compatibility)
   topics: [
     {
       title: "Deep Learning & AI",

@@ -13,10 +13,10 @@ export const dynamic = 'force-static';
 export async function generateMetadata() {
   return {
     title: 'About - Rajat Vijay',
-    description: 'Learn more about Rajat Vijay, a passionate software developer and tech enthusiast.',
+    description: 'Learn more about Rajat Vijay, an innovative engineering leader with 8+ years of experience in frontend engineering and React.js development.',
     openGraph: {
       title: 'About Rajat Vijay',
-      description: 'Passionate software developer and tech enthusiast',
+      description: 'Engineering Leader and React enthusiast, speaker at React India 2024',
       type: 'profile',
     },
   };

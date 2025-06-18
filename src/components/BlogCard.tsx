@@ -14,7 +14,7 @@ interface BlogCardProps {
 const BlogCard = ({ title, excerpt, date, readTime, categories, slug }: BlogCardProps) => {
   return (
     <Card className="hover-lift hover-glow group cursor-pointer transition-all duration-300 border-border/50 hover:border-border">
-      <CardHeader className="pb-4 p-4 sm:p-6">
+      <CardHeader className="pb-2 p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center text-sm text-muted-foreground mb-3 space-y-1 sm:space-y-0 sm:space-x-4">
           <time dateTime={date} className="font-medium">
             {new Date(date).toLocaleDateString('en-US', {
@@ -28,7 +28,7 @@ const BlogCard = ({ title, excerpt, date, readTime, categories, slug }: BlogCard
             <span>{readTime}</span>
           </div>
         </div>
-        <h3 className="text-lg sm:text-xl font-serif font-semibold leading-tight text-foreground group-hover:text-primary transition-colors duration-200">
+        <h3 className="text-lg sm:text-xl font-serif font-semibold leading-tight text-foreground group-hover:text-primary transition-colors duration-200 mb-2">
           {title}
         </h3>
       </CardHeader>

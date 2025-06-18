@@ -9,11 +9,10 @@ const About = () => {
         {/* Hero Section */}
         <section className="text-center mb-16 animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-serif font-semibold text-foreground mb-6 leading-tight">
-            About Me
+            {siteConfig.about.title}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Developer, designer, and writer exploring the intersection of code
-            and creativity.
+            {siteConfig.about.subtitle}
           </p>
         </section>
 
@@ -38,10 +37,10 @@ const About = () => {
 
           <div className="mb-12">
             <h2 className="text-3xl font-serif font-semibold mb-4">
-              What I Write About
+              {siteConfig.about.sections.topics.title}
             </h2>
             <ul className="list-none p-0 grid gap-4">
-              {siteConfig.topics.map((topic, index) => (
+              {siteConfig.about.sections.topics.items.map((topic, index) => (
                 <li key={index} className="flex items-start gap-4 p-4 rounded-lg bg-muted/30">
                   <div className="flex-1">
                     <h3 className="font-semibold mb-2">{topic.title}</h3>
@@ -56,12 +55,10 @@ const About = () => {
 
           <div className="mb-12">
             <h2 className="text-3xl font-serif font-semibold mb-4">
-              Get in Touch
+              {siteConfig.about.sections.contact.title}
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              I'm always interested in connecting with fellow developers and
-              discussing new ideas. Feel free to reach out through any of the
-              channels below.
+              {siteConfig.about.sections.contact.description}
             </p>
             <div className="flex justify-center space-x-6">
               <a
