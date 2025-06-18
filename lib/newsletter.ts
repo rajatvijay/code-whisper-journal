@@ -22,7 +22,7 @@ export async function subscribeToNewsletter(
 
     // Check if email already exists
     const q = query(
-      collection(db, "newsletter-subscribers"),
+      collection(db, "newsletterSubscribers"),
       where("email", "==", email.toLowerCase())
     );
     const querySnapshot = await getDocs(q);
@@ -35,7 +35,7 @@ export async function subscribeToNewsletter(
     }
 
     // Add new subscription
-    const docRef = await addDoc(collection(db, "newsletter-subscribers"), {
+    const docRef = await addDoc(collection(db, "newsletterSubscribers"), {
       email: email.toLowerCase(),
       subscribedAt: new Date(),
       source: "website",

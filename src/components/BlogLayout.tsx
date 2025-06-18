@@ -26,7 +26,7 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
             <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
               <a href="https://twitter.com/rajatvijay" className="prose-link" target="_blank" rel="noopener noreferrer">Twitter</a>
               <a href="https://github.com/rajatvijay" className="prose-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://linkedin.com/in/rajatvijay" className="prose-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://linkedin.com/in/rajat-vijay" className="prose-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a href="https://rajatvijay.in/feed.xml" className="prose-link">RSS</a>
             </div>
           </div>
