@@ -1,13 +1,8 @@
 "use client";
 
 import { useEffect } from 'react';
+import clarity from '@microsoft/clarity';
 import { siteConfig } from '../../../config/site';
-
-declare global {
-  interface Window {
-    clarity: (action: string, ...args: any[]) => void;
-  }
-}
 
 export default function ClarityScript() {
   useEffect(() => {
@@ -18,24 +13,15 @@ export default function ClarityScript() {
       return;
     }
 
-    // Initialize Microsoft Clarity
-    (function(c: any, l: any, a: any, r: any, i: any) {
-      c[a] = c[a] || function(...args: any[]) { (c[a].q = c[a].q || []).push(args) };
-      const t = l.createElement(r);
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      const y = l.getElementsByTagName(r)[0];
-      y.parentNode?.insertBefore(t, y);
-    })(window, document, "clarity", "script", clarityId);
+    // Initialize Microsoft Clarity with the official package
+    clarity.init(clarityId);
 
     // Enhanced tracking for blog-specific events
     const trackPageView = () => {
-      if (window.clarity) {
-        window.clarity('set', 'page_type', getPageType());
-        window.clarity('set', 'user_agent', navigator.userAgent);
-        window.clarity('set', 'referrer', document.referrer);
-        window.clarity('set', 'timestamp', new Date().toISOString());
-      }
+      clarity.setTag('page_type', getPageType());
+      clarity.setTag('user_agent', navigator.userAgent);
+      clarity.setTag('referrer', document.referrer);
+      clarity.setTag('timestamp', new Date().toISOString());
     };
 
     const getPageType = () => {
@@ -61,9 +47,7 @@ export default function ClarityScript() {
         
         // Track milestone scroll depths
         if ([25, 50, 75, 90, 100].includes(scrollPercent)) {
-          if (window.clarity) {
-            window.clarity('set', `scroll_${scrollPercent}`, true);
-          }
+          clarity.setTag(`scroll_${scrollPercent}`, 'true');
         }
       }
     };
@@ -71,17 +55,12 @@ export default function ClarityScript() {
     // Track blog reading engagement
     const trackReadingTime = () => {
       let startTime = Date.now();
-      let isActive = true;
       
       const handleVisibilityChange = () => {
         if (document.hidden) {
-          isActive = false;
-          if (window.clarity) {
-            const readingTime = Math.round((Date.now() - startTime) / 1000);
-            window.clarity('set', 'reading_time_seconds', readingTime);
-          }
+          const readingTime = Math.round((Date.now() - startTime) / 1000);
+          clarity.setTag('reading_time_seconds', readingTime.toString());
         } else {
-          isActive = true;
           startTime = Date.now();
         }
       };
@@ -99,17 +78,15 @@ export default function ClarityScript() {
       
       newsletterForms.forEach(form => {
         form.addEventListener('submit', () => {
-          if (window.clarity) {
-            window.clarity('set', 'newsletter_signup_attempted', true);
-          }
+          clarity.setTag('newsletter_signup_attempted', 'true');
         });
       });
 
       // Track newsletter form visibility
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && window.clarity) {
-            window.clarity('set', 'newsletter_form_viewed', true);
+          if (entry.isIntersecting) {
+            clarity.setTag('newsletter_form_viewed', 'true');
           }
         });
       });
@@ -124,8 +101,8 @@ export default function ClarityScript() {
       searchInputs.forEach(input => {
         input.addEventListener('input', (e) => {
           const target = e.target as HTMLInputElement;
-          if (target.value.length > 2 && window.clarity) {
-            window.clarity('set', 'search_used', true);
+          if (target.value.length > 2) {
+            clarity.setTag('search_used', 'true');
           }
         });
       });
@@ -137,8 +114,26 @@ export default function ClarityScript() {
       
       categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-          if (window.clarity) {
-            window.clarity('set', 'category_filter_used', true);
+          clarity.setTag('category_filter_used', 'true');
+        });
+      });
+    };
+
+    // Track talk interactions on about page
+    const trackTalkInteractions = () => {
+      const talkLinks = document.querySelectorAll('a[href*="youtube.com"], a[href*="slides.com"], a[href*="reactindia.io"]');
+      
+      talkLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const target = e.target as HTMLAnchorElement;
+          const url = target.href;
+          
+          if (url.includes('youtube.com')) {
+            clarity.setTag('talk_video_clicked', 'true');
+          } else if (url.includes('slides.com')) {
+            clarity.setTag('talk_slides_clicked', 'true');
+          } else if (url.includes('reactindia.io')) {
+            clarity.setTag('talk_event_clicked', 'true');
           }
         });
       });
@@ -153,6 +148,7 @@ export default function ClarityScript() {
       trackNewsletterInteraction();
       trackSearchInteraction();
       trackCategoryInteraction();
+      trackTalkInteractions();
     }, 1000);
 
     // Cleanup function

@@ -101,7 +101,8 @@ export const siteConfig = {
   // About page configuration
   about: {
     title: "About Me",
-    subtitle: "Engineering Leader, React enthusiast, and speaker exploring the intersection of performance optimization and developer experience.",
+    subtitle:
+      "Engineering Leader, React enthusiast, and speaker exploring the intersection of performance optimization and developer experience.",
     sections: {
       topics: {
         title: "What I Write About",
@@ -126,15 +127,47 @@ export const siteConfig = {
             description:
               "Physical and mental health practices for sustainable performance",
           },
-        ]
+        ],
+      },
+      talks: {
+        title: "Speaking & Talks",
+        description:
+          "I enjoy sharing knowledge and insights with the developer community through talks and presentations.",
+        items: [
+          {
+            title: "Experiments with React Compiler in Production Code",
+            event: "React India 2024",
+            description:
+              "Explore our journey of integrating the React Compiler into the production codebase, focusing on the challenges faced and lessons learned. This talk covers practical strategies for overcoming obstacles when implementing React Compiler in performance-critical areas.",
+            date: "November 2024",
+            type: "Conference Talk",
+            videoUrl: "https://www.youtube.com/watch?v=WuDTRt07mmM&t=1s",
+            eventUrl: "https://www.reactindia.io/speakers/rajat-vijay",
+            // topics: ["React", "Performance Optimization", "Compiler Technology", "Production Engineering"]
+          },
+          {
+            title: "AI Generated Test Cases",
+            event: "React Nexus 2024",
+            description:
+              "Exploring the potential of AI in generating comprehensive test cases for modern web applications, covering automated testing strategies and practical implementation approaches.",
+            date: "2024",
+            type: "Tech Talk",
+            videoUrl: "https://www.youtube.com/watch?v=JF6x0BFmr0I",
+            eventUrl: "https://2024.reactnexus.com",
+            slidesUrl:
+              "https://slides.com/rajatvijay/ai-generated-test-cases/fullscreen",
+            // topics: ["AI", "Testing", "Automation", "Quality Assurance"]
+          },
+        ],
       },
       contact: {
         title: "Get in Touch",
-        description: "I'm always interested in connecting with fellow developers, discussing React performance optimization, AI-driven development tools, and sharing knowledge about engineering leadership. Feel free to reach out through any of the channels below."
-      }
-    }
+        description:
+          "I'm always interested in connecting with fellow developers, discussing React performance optimization, AI-driven development tools, and sharing knowledge about engineering leadership. Feel free to reach out through any of the channels below.",
+      },
+    },
   },
-  
+
   // Legacy topics reference (for backward compatibility)
   topics: [
     {
@@ -171,7 +204,7 @@ export const siteConfig = {
   analytics: {
     clarity: {
       projectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "",
-      enabled: process.env.NODE_ENV === "production",
+      enabled: true, // process.env.NODE_ENV === "production",
     },
   },
 } as const;
@@ -190,7 +223,9 @@ export const getBlogCategories = (categories?: string[]): string[] => {
     return [...siteConfig.blog.defaultCategories];
   }
   return categories.filter((cat) =>
-    siteConfig.blog.categories.includes(cat as (typeof siteConfig.blog.categories)[number])
+    siteConfig.blog.categories.includes(
+      cat as (typeof siteConfig.blog.categories)[number]
+    )
   );
 };
 
