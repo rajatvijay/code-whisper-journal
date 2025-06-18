@@ -73,6 +73,7 @@ export default function NewsletterSubscription({
 
       <form
         onSubmit={handleSubmit}
+        data-newsletter
         className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
         aria-label="Newsletter subscription form"
       >
@@ -80,7 +81,7 @@ export default function NewsletterSubscription({
           type="email"
           placeholder="Enter your email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
           disabled={isLoading}
           className="flex-1 bg-background border-border focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           aria-label="Email address for newsletter"

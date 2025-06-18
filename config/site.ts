@@ -166,6 +166,14 @@ export const siteConfig = {
     language: "en",
     locale: "en-US",
   },
+
+  // Analytics configuration
+  analytics: {
+    clarity: {
+      projectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "",
+      enabled: process.env.NODE_ENV === "production",
+    },
+  },
 } as const;
 
 // Helper functions for common operations

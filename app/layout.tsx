@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import type { Metadata } from 'next'
 import { siteConfig } from '../config/site';
+import ClarityScript from '../src/components/Analytics/ClarityScript';
 
 export const metadata: Metadata = {
   title: {
@@ -93,6 +94,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className="min-h-screen bg-background antialiased" suppressHydrationWarning>
+        <ClarityScript />
         <a href="#main-content" className="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:shadow-lg">
           Skip to main content
         </a>
