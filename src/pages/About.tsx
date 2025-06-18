@@ -21,7 +21,7 @@ const About = () => {
           <div className="mb-12">
             <img
               src={siteConfig.author.avatar}
-              alt={`${siteConfig.author.name} Profile`}
+              alt={`Professional headshot of ${siteConfig.author.name}, Engineering Leader and React enthusiast`}
               className="rounded-xl mx-auto mb-8 shadow-lg"
             />
             <h2 className="text-3xl font-serif font-semibold mb-4">

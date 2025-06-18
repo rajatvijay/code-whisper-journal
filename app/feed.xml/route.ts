@@ -8,8 +8,8 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{siteConfig.name}</title>
-    <description>{siteConfig.description}</description>
+    <title>${siteConfig.name}</title>
+    <description>${siteConfig.description}</description>
     <link>${baseUrl}</link>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
@@ -19,7 +19,7 @@ export async function GET() {
     <ttl>60</ttl>
     <image>
       <url>${baseUrl}/logo.png</url>
-      <title>{siteConfig.name}</title>
+      <title>${siteConfig.name}</title>
       <link>${baseUrl}</link>
       <width>32</width>
       <height>32</height>

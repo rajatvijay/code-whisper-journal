@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';\nimport DOMPurify from 'dompurify';
 import { Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import NewsletterSubscription from '../../components/NewsletterSubscription';
@@ -16,6 +16,16 @@ interface BlogPostProps {
 
 const BlogPost = ({ title, content, date, readTime, tags }: BlogPostProps) => {
   const [readingProgress, setReadingProgress] = useState(0);
+  
+  const sanitizedContent = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return DOMPurify.sanitize(content, {
+        ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'i', 'b', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'div', 'span'],
+        ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id', 'target', 'rel']
+      });
+    }
+    return content;
+  }, [content]);
 
   useEffect(() => {
     const updateReadingProgress = () => {
@@ -111,7 +121,7 @@ const BlogPost = ({ title, content, date, readTime, tags }: BlogPostProps) => {
                        [&>img]:rounded-lg [&>img]:border [&>img]:border-border/50 [&>img]:my-8
                        [&_strong]:text-foreground [&_strong]:font-semibold
                        [&_em]:italic"
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: sanitizedContent }}
           />
         </div>
 

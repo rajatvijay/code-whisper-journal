@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from '../../config/site';
@@ -19,11 +19,39 @@ interface NavigationProps {
 const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark");
   };
+
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    menuButtonRef.current?.focus();
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        closeMobileMenu();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Focus first menu item
+      const firstMenuItem = mobileMenuRef.current?.querySelector('a, button');
+      if (firstMenuItem instanceof HTMLElement) {
+        firstMenuItem.focus();
+      }
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border" role="navigation" aria-label="Main navigation">
@@ -73,6 +101,7 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
             {/* Mobile menu button */}
             <div className="md:hidden">
               <Button
+                ref={menuButtonRef}
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(!isOpen)}
@@ -94,12 +123,12 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden" id="mobile-menu">
+          <div className="md:hidden" id="mobile-menu" ref={mobileMenuRef}>
             <div className="px-2 pt-2 pb-3 border-t border-border bg-background/95" role="menu">
               <a
                 href="/about"
                 className="text-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMobileMenu}
                 role="menuitem"
                 aria-describedby="mobile-about-description"
               >
@@ -124,7 +153,7 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
                           key={category}
                           onClick={() => {
                             setSelectedCategory?.(category);
-                            setIsOpen(false);
+                            closeMobileMenu();
                           }}
                           className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm flex justify-between items-center ${
                             selectedCategory === category 

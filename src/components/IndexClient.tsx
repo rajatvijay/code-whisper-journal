@@ -64,7 +64,7 @@ export default function IndexClient({ posts }: IndexClientProps) {
             <section className="mb-8 sm:mb-12 animate-slide-up stagger-1" role="search" aria-label="Article search">
               <div className="flex justify-center px-4">
                 <div className="relative w-full max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" aria-hidden="true" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" aria-label="Search icon" />
                   <Input
                     type="text"
                     placeholder="Search articles..."
