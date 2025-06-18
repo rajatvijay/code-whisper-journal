@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prebuild": "pnpm run blog:update",
     "blog:update": "node scripts/update-blog-index.js"
   },
   "dependencies": {
