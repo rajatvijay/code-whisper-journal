@@ -12,10 +12,6 @@ export interface BlogPost {
   date: string;
   readTime: string;
   categories: string[];
-  author: {
-    name: string;
-    avatar: string;
-  };
   content?: string;
   slug: string;
 }

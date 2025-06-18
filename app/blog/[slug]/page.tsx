@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author.name],
+      authors: [siteConfig.author.name],
       tags: post.categories,
     },
     twitter: {
@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         slug={post.slug}
         readingTime={post.readTime}
         tags={post.categories}
-        author={post.author}
+        author={siteConfig.author}
       />
       <BreadcrumbStructuredData items={breadcrumbItems} />
       <BlogPost {...post} content={post.content || ''} tags={post.categories} />

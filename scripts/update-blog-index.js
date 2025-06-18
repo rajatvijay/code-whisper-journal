@@ -58,10 +58,7 @@ async function updateBlogIndex() {
         date: data.date || '',
         readTime: data.readTime || '5 min read',
         categories: data.categories || ['General Thoughts'],
-        author: data.author || {
-          name: 'Rajat Vijay',
-          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
-        }
+        // Author info will be fetched from site config instead of storing here
       };
 
       blogPosts.push(post);

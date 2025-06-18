@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { siteConfig } from '../../config/site';
 
 interface BlogPostProps {
   title: string;
@@ -11,13 +12,10 @@ interface BlogPostProps {
   date: string;
   readTime: string;
   tags: string[];
-  author: {
-    name: string;
-    avatar: string;
-  };
 }
 
-const BlogPost = ({ title, content, date, readTime, tags, author }: BlogPostProps) => {
+const BlogPost = ({ title, content, date, readTime, tags }: BlogPostProps) => {
+  const author = siteConfig.author;
   const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
@@ -81,12 +79,12 @@ const BlogPost = ({ title, content, date, readTime, tags, author }: BlogPostProp
 
           <div className="flex items-center space-x-3 sm:space-x-4 mb-6 sm:mb-8 animate-slide-up stagger-2">
             <img
-              src={author.avatar}
-              alt={author.name}
+              src={siteConfig.author.avatar}
+              alt={siteConfig.author.name}
               className="w-12 h-12 sm:w-14 sm:h-14 rounded-full ring-2 ring-border"
             />
             <div>
-              <p className="font-semibold text-foreground text-base sm:text-lg">{author.name}</p>
+              <p className="font-semibold text-foreground text-base sm:text-lg">{siteConfig.author.name}</p>
               <p className="text-muted-foreground text-sm">Author</p>
             </div>
           </div>
@@ -133,13 +131,13 @@ const BlogPost = ({ title, content, date, readTime, tags, author }: BlogPostProp
         <footer className="mt-12 sm:mt-20 pt-8 sm:pt-12 border-t border-border/60">
           <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 bg-muted/30 rounded-xl sm:rounded-2xl p-6 sm:p-8">
             <img
-              src={author.avatar}
-              alt={author.name}
+              src={siteConfig.author.avatar}
+              alt={siteConfig.author.name}
               className="w-16 h-16 sm:w-20 sm:h-20 rounded-full ring-2 ring-border flex-shrink-0"
             />
             <div className="flex-1">
               <h3 className="font-serif font-bold text-lg sm:text-xl text-foreground mb-2 sm:mb-3">
-                About {author.name}
+                About {siteConfig.author.name}
               </h3>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                 Full-stack developer passionate about creating elegant solutions to complex problems. 
