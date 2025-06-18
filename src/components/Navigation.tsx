@@ -22,9 +22,9 @@ const Navigation = () => {
             <a
               href="/"
               className="text-xl font-serif font-semibold text-foreground hover:text-primary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
-              aria-label="Code-Whisper Journal - Home"
+              aria-label="Logs & Gains - Home"
             >
-              Code-Whisper Journal
+              Logs & Gains
             </a>
           </div>
 

@@ -28,7 +28,7 @@ export function BlogPostStructuredData({
   tags,
   author
 }: BlogPostStructuredDataProps) {
-  const baseUrl = 'https://code-whisper-journal.vercel.app'
+  const baseUrl = 'https://rajatvijay.in'
   
   const structuredData = {
     '@context': 'https://schema.org',
@@ -50,7 +50,7 @@ export function BlogPostStructuredData({
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Code-Whisper Journal',
+      name: 'Logs & Gains',
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
@@ -109,7 +109,7 @@ export function WebsiteStructuredData({ url, name, description }: WebsiteStructu
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Code-Whisper Journal',
+      name: 'Logs & Gains',
       logo: {
         '@type': 'ImageObject',
         url: `${url}/logo.png`,

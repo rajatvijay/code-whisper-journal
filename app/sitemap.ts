@@ -1,7 +1,7 @@
 import { getAllBlogPosts } from '@/lib/markdown'
 
 export default async function sitemap() {
-  const baseUrl = 'https://code-whisper-journal.vercel.app'
+  const baseUrl = 'https://rajatvijay.in'
   
   // Get all blog posts
   const posts = await getAllBlogPosts()

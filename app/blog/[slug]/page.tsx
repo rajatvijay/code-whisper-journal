@@ -54,9 +54,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://code-whisper-journal.vercel.app' },
-    { name: 'Blog', url: 'https://code-whisper-journal.vercel.app/#blog' },
-    { name: post.title, url: `https://code-whisper-journal.vercel.app/blog/${post.slug}` }
+    { name: 'Home', url: 'https://rajatvijay.in' },
+    { name: 'Blog', url: 'https://rajatvijay.in/#blog' },
+    { name: post.title, url: `https://rajatvijay.in/blog/${post.slug}` }
   ];
 
   return (

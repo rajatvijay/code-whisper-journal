@@ -4,10 +4,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Code-Whisper Journal',
-    default: 'Code-Whisper Journal - Exploring Code, Design & Technology'
+    template: '%s | Logs & Gains',
+    default: 'Logs & Gains - Changing the architecture within'
   },
-  description: 'A personal blog exploring the intersection of development, design, and user experience. Thoughts on modern web development, programming insights, and tech trends.',
+  description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
   keywords: [
     'web development',
     'programming',
@@ -23,17 +23,17 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rajat Vijay', url: 'https://twitter.com/rajatvijay' }],
   creator: 'Rajat Vijay',
   publisher: 'Rajat Vijay',
-  metadataBase: new URL('https://code-whisper-journal.vercel.app'),
+  metadataBase: new URL('https://rajatvijay.in'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://code-whisper-journal.vercel.app',
-    siteName: 'Code-Whisper Journal',
-    title: 'Code-Whisper Journal - Exploring Code, Design & Technology',
-    description: 'A personal blog exploring the intersection of development, design, and user experience.',
+    url: 'https://rajatvijay.in',
+    siteName: 'Logs & Gains',
+    title: 'Logs & Gains - Changing the architecture within',
+    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
     images: [
       {
         url: '/og-image.png',
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@rajatvijay',
     creator: '@rajatvijay',
-    title: 'Code-Whisper Journal - Exploring Code, Design & Technology',
-    description: 'A personal blog exploring the intersection of development, design, and user experience.',
+    title: 'Logs & Gains - Changing the architecture within',
+    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
     images: ['/og-image.png']
   },
   robots: {
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   classification: 'Technology Blog',
   referrer: 'origin-when-cross-origin',
   generator: 'Next.js',
-  applicationName: 'Code-Whisper Journal',
+  applicationName: 'Logs & Gains',
   manifest: '/manifest.json',
   icons: {
     icon: [

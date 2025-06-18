@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Code-Whisper Journal - Exploring Code, Design & Technology',
-    short_name: 'Code-Whisper Journal',
-    description: 'A personal blog exploring the intersection of development, design, and user experience. Thoughts on modern web development, programming insights, and tech trends.',
+    name: 'Logs & Gains - Changing the architecture within',
+    short_name: 'Logs & Gains',
+    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
@@ -49,14 +49,14 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: '1280x720',
         type: 'image/png',
         form_factor: 'wide',
-        label: 'Code-Whisper Journal homepage on desktop',
+        label: 'Logs & Gains homepage on desktop',
       },
       {
         src: '/screenshot-narrow.png',
         sizes: '390x844',
         type: 'image/png',
         form_factor: 'narrow',
-        label: 'Code-Whisper Journal homepage on mobile',
+        label: 'Logs & Gains homepage on mobile',
       },
     ],
     shortcuts: [

@@ -12,9 +12,9 @@ export default async function Home() {
   return (
     <>
       <WebsiteStructuredData 
-        url="https://code-whisper-journal.vercel.app"
-        name="Code-Whisper Journal"
-        description="A personal blog exploring the intersection of development, design, and user experience. Thoughts on modern web development, programming insights, and tech trends."
+        url="https://rajatvijay.in"
+        name="Logs & Gains"
+        description="Changing the architecture within. Notes on learning machines, mastering self, and shaping teams."
       />
       <IndexClient posts={posts} />
     </>
@@ -27,11 +27,11 @@ export const dynamic = 'force-static';
 // Generate metadata
 export async function generateMetadata() {
   return {
-    title: 'Rajat Vijay - Thoughts on Code & Design',
-    description: 'Exploring the intersection of development, design, and user experience through in-depth articles and practical insights.',
+    title: 'Logs & Gains - Changing the architecture within',
+    description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
     openGraph: {
-      title: 'Rajat Vijay - Developer Blog',
-      description: 'Thoughts on Code & Design',
+      title: 'Logs & Gains - Rajat Vijay',
+      description: 'Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.',
       type: 'website',
     },
   };

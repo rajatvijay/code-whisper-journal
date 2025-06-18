@@ -37,11 +37,11 @@ export default function IndexClient({ posts }: IndexClientProps) {
         {/* Hero Section */}
         <section className="text-center mb-16 animate-fade-in" role="banner">
           <h1 className="text-5xl md:text-6xl font-serif font-semibold text-foreground mb-6 leading-tight">
-            Thoughts on Code & Design
+            Logs & Gains
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Exploring the intersection of development, design, and user experience through 
-            in-depth articles and practical insights.
+            Changing the architecture within.<br />
+            Notes on learning machines, mastering self, and shaping teams.
           </p>
         </section>
 
@@ -137,7 +137,7 @@ export default function IndexClient({ posts }: IndexClientProps) {
             Stay Updated
           </h2>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Get notified when I publish new articles about development and design.
+            Get notified when I publish new insights on learning machines, mastering self, and shaping teams.
           </p>
           <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" aria-label="Newsletter subscription form">
             <Input
