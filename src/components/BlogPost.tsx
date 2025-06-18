@@ -1,7 +1,8 @@
 
 "use client";
 
-import React, { useEffect, useState, useMemo } from 'react';\nimport DOMPurify from 'dompurify';
+import React, { useEffect, useState, useMemo } from 'react';
+import DOMPurify from 'dompurify';
 import { Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import NewsletterSubscription from '../../components/NewsletterSubscription';
