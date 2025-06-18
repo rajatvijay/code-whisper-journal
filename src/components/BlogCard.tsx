@@ -1,17 +1,16 @@
 
+import React from 'react';
 import { Clock, ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from './ui/card';
 
 interface BlogCardProps {
   title: string;
   excerpt: string;
   date: string;
   readTime: string;
-  categories: string[];
-  slug: string;
 }
 
-const BlogCard = ({ title, excerpt, date, readTime, categories, slug }: BlogCardProps) => {
+const BlogCard = ({ title, excerpt, date, readTime }: BlogCardProps) => {
   return (
     <Card className="hover-lift hover-glow group cursor-pointer transition-all duration-300 border-border/50 hover:border-border">
       <CardHeader className="pb-4 px-4 pt-4 sm:px-6 sm:pt-6 md:px-7 md:pt-7">

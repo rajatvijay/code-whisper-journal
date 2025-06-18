@@ -98,7 +98,12 @@ export default function IndexClient({ posts }: IndexClientProps) {
                       className="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
                       aria-label={`Read article: ${post.title}`}
                     >
-                      <BlogCard {...post} slug={`/blog/${post.slug}`} />
+                      <BlogCard 
+                        title={post.title}
+                        excerpt={post.excerpt}
+                        date={post.date}
+                        readTime={post.readTime}
+                      />
                     </a>
                   </div>
                 ))}

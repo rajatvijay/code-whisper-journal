@@ -182,7 +182,7 @@ export const getBlogCategories = (categories?: string[]): string[] => {
     return [...siteConfig.blog.defaultCategories];
   }
   return categories.filter((cat) =>
-    siteConfig.blog.categories.includes(cat as any)
+    siteConfig.blog.categories.includes(cat as (typeof siteConfig.blog.categories)[number])
   );
 };
 

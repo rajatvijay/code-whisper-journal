@@ -3,8 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Clock, Calendar, ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { siteConfig } from '../../config/site';
+import { Button } from './ui/button';
 import NewsletterSubscription from '../../components/NewsletterSubscription';
 
 interface BlogPostProps {
@@ -16,7 +15,6 @@ interface BlogPostProps {
 }
 
 const BlogPost = ({ title, content, date, readTime, tags }: BlogPostProps) => {
-  const author = siteConfig.author;
   const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
