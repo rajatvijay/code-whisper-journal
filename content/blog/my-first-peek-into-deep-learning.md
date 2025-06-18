@@ -3,13 +3,8 @@ title: My First Peek into Deep Learning (And It Wasn't That Scary)
 excerpt: Following the fast.ai course and sharing my journey into deep learning in plain English — from neural networks to avoiding overfitting.
 date: 2024-03-20
 readingTime: 8 # minutes
-category: Deep Learning
-tags:
-  - deep-learning
-  - ai
-  - machine-learning
-  - beginner
-  - fastai
+categories:
+  - Deep Learning
 author:
   name: Rajat Vijay
   avatar: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face

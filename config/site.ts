@@ -31,10 +31,15 @@ export const siteConfig = {
     categories: [
       "Deep Learning",
       "Generative AI", 
-      "Health",
-      "General Thoughts"
+      "AI",
+      "Machine Learning",
+      "Health & Wellness",
+      "Personal Development",
+      "Team Leadership",
+      "General Thoughts",
+      "Beginner Guide"
     ],
-    defaultCategory: "General Thoughts",
+    defaultCategories: ["General Thoughts"],
     postsPerPage: 10,
     readTimeWPM: 200 // Words per minute for reading time calculation
   },
@@ -127,10 +132,11 @@ export const getAuthorSocial = (platform: keyof typeof siteConfig.social) => {
   return siteConfig.social[platform];
 };
 
-export const getBlogCategory = (category?: string): string => {
-  return category && siteConfig.blog.categories.includes(category as any) 
-    ? category 
-    : siteConfig.blog.defaultCategory;
+export const getBlogCategories = (categories?: string[]): string[] => {
+  if (!categories || categories.length === 0) {
+    return [...siteConfig.blog.defaultCategories];
+  }
+  return categories.filter(cat => siteConfig.blog.categories.includes(cat as any));
 };
 
 export default siteConfig;

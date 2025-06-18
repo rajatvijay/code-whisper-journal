@@ -6,13 +6,8 @@
     "excerpt": "Following the fast.ai course and sharing my journey into deep learning in plain English — from neural networks to avoiding overfitting.",
     "date": "2024-03-20T00:00:00.000Z",
     "readTime": "5 min read",
-    "category": "Deep Learning",
-    "tags": [
-      "deep-learning",
-      "ai",
-      "machine-learning",
-      "beginner",
-      "fastai"
+    "categories": [
+      "Deep Learning"
     ],
     "author": {
       "name": "Rajat Vijay",

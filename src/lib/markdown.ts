@@ -11,8 +11,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   readTime: string;
-  category: string;
-  tags: string[];
+  categories: string[];
   author: {
     name: string;
     avatar: string;
@@ -88,7 +87,7 @@ export async function getAllCategories(): Promise<string[]> {
     const posts = JSON.parse(indexContents);
     
     const categories = posts
-      .map((post: BlogPost) => post.category)
+      .flatMap((post: BlogPost) => post.categories || [])
       .filter((category: string) => category)
       .filter((category: string, index: number, array: string[]) => array.indexOf(category) === index)
       .sort();
@@ -100,11 +99,11 @@ export async function getAllCategories(): Promise<string[]> {
   }
 }
 
-// Get blog posts by category
+// Get blog posts by category  
 export async function getBlogPostsByCategory(category: string): Promise<Omit<BlogPost, 'content'>[]> {
   try {
     const allPosts = await getAllBlogPosts();
-    return allPosts.filter(post => post.category === category);
+    return allPosts.filter(post => post.categories && post.categories.includes(category));
   } catch (error) {
     console.error('Error filtering posts by category:', error);
     return [];

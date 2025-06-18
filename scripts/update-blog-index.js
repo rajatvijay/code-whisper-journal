@@ -57,8 +57,7 @@ async function updateBlogIndex() {
         excerpt: data.excerpt || '',
         date: data.date || '',
         readTime: data.readTime || '5 min read',
-        category: data.category || 'General Thoughts',
-        tags: data.tags || [],
+        categories: data.categories || ['General Thoughts'],
         author: data.author || {
           name: 'Rajat Vijay',
           avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'

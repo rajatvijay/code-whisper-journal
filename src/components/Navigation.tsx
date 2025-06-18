@@ -5,7 +5,18 @@ import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from '../../config/site';
 
-const Navigation = () => {
+interface NavigationProps {
+  categories?: string[];
+  selectedCategory?: string;
+  setSelectedCategory?: (category: string) => void;
+  posts?: Array<{
+    id: string;
+    categories?: string[];
+    [key: string]: unknown;
+  }>;
+}
+
+const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
 
@@ -95,6 +106,42 @@ const Navigation = () => {
                 About
                 <span id="mobile-about-description" className="sr-only">Learn more about Rajat Vijay and this blog</span>
               </a>
+              
+              {/* Categories in Mobile Menu */}
+              {categories && categories.length > 0 && (
+                <div className="mt-4 pt-4 border-t border-border/50">
+                  <div className="px-3 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                    Categories
+                  </div>
+                  <div className="space-y-1">
+                    {categories.map((category) => {
+                      const categoryCount = category === "All" 
+                        ? (posts?.length || 0)
+                        : (posts?.filter(p => p.categories && p.categories.includes(category)).length || 0);
+                      
+                      return (
+                        <button
+                          key={category}
+                          onClick={() => {
+                            setSelectedCategory?.(category);
+                            setIsOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm flex justify-between items-center ${
+                            selectedCategory === category 
+                              ? 'text-primary bg-primary/10' 
+                              : 'text-foreground hover:text-primary hover:bg-muted/50'
+                          }`}
+                          role="menuitem"
+                          type="button"
+                        >
+                          <span>{category}</span>
+                          <span className="text-xs opacity-70">({categoryCount})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -3,14 +3,26 @@ import React from 'react';
 import Navigation from './Navigation';
 import { siteConfig } from '../../config/site';
 
-interface BlogLayoutProps {
-  children: React.ReactNode;
+interface NavigationProps {
+  categories?: string[];
+  selectedCategory?: string;
+  setSelectedCategory?: (category: string) => void;
+  posts?: Array<{
+    id: string;
+    categories?: string[];
+    [key: string]: unknown;
+  }>;
 }
 
-const BlogLayout = ({ children }: BlogLayoutProps) => {
+interface BlogLayoutProps {
+  children: React.ReactNode;
+  navigationProps?: NavigationProps;
+}
+
+const BlogLayout = ({ children, navigationProps }: BlogLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
+      <Navigation {...navigationProps} />
       <main className="relative">
         {children}
       </main>
