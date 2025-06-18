@@ -106,20 +106,25 @@ const BlogPost = ({ title, content, date, readTime, tags, author }: BlogPostProp
 
         {/* Article Content */}
         <div className="animate-slide-up stagger-4">
-          <div 
-            className="prose prose-sm sm:prose-base lg:prose-lg prose-gray dark:prose-invert max-w-none 
-                       prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-tight
-                       prose-h1:text-2xl sm:prose-h1:text-3xl lg:prose-h1:text-4xl prose-h1:mt-8 prose-h1:mb-4 sm:prose-h1:mb-6
-                       prose-h2:text-xl sm:prose-h2:text-2xl lg:prose-h2:text-3xl prose-h2:mt-8 sm:prose-h2:mt-12 prose-h2:mb-4 sm:prose-h2:mb-6 prose-h2:leading-tight
-                       prose-h3:text-lg sm:prose-h3:text-xl lg:prose-h3:text-2xl prose-h3:mt-6 sm:prose-h3:mt-10 prose-h3:mb-3 sm:prose-h3:mb-5 prose-h3:leading-tight
-                       prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-4 sm:prose-p:mb-6 prose-p:text-sm sm:prose-p:text-base lg:prose-p:text-[17px]
-                       prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border prose-pre:rounded-lg sm:prose-pre:rounded-xl prose-pre:p-3 sm:prose-pre:p-6 prose-pre:my-4 sm:prose-pre:my-8 prose-pre:overflow-x-auto
-                       prose-code:bg-muted/60 prose-code:px-1.5 sm:prose-code:px-2 prose-code:py-0.5 sm:prose-code:py-1 prose-code:rounded prose-code:text-xs sm:prose-code:text-sm lg:prose-code:text-[15px] prose-code:font-mono
-                       prose-code:before:content-none prose-code:after:content-none
-                       prose-strong:text-foreground prose-strong:font-semibold
-                       prose-blockquote:border-l-2 sm:prose-blockquote:border-l-4 prose-blockquote:border-primary/30 prose-blockquote:pl-3 sm:prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
-                       prose-ul:my-4 sm:prose-ul:my-6 prose-ol:my-4 sm:prose-ol:my-6 prose-li:my-1 sm:prose-li:my-2
-                       prose-img:rounded-lg prose-img:border prose-img:border-border/50"
+          <article 
+            className="prose prose-lg prose-gray dark:prose-invert max-w-none
+                       [&>h1]:text-3xl [&>h1]:font-serif [&>h1]:font-bold [&>h1]:tracking-tight [&>h1]:mt-16 [&>h1]:mb-8 [&>h1]:text-foreground
+                       [&>h2]:text-2xl [&>h2]:font-serif [&>h2]:font-semibold [&>h2]:tracking-tight [&>h2]:mt-12 [&>h2]:mb-6 [&>h2]:text-foreground
+                       [&>h3]:text-xl [&>h3]:font-serif [&>h3]:font-semibold [&>h3]:tracking-tight [&>h3]:mt-10 [&>h3]:mb-5 [&>h3]:text-foreground
+                       [&>h4]:text-lg [&>h4]:font-serif [&>h4]:font-semibold [&>h4]:tracking-tight [&>h4]:mt-8 [&>h4]:mb-4 [&>h4]:text-foreground
+                       [&>p]:text-foreground [&>p]:leading-[1.8] [&>p]:mb-6 [&>p]:text-base
+                       [&>hr]:border-border/40 [&>hr]:my-12 [&>hr]:border-t-2
+                       [&>blockquote]:border-l-4 [&>blockquote]:border-primary/30 [&>blockquote]:pl-6 [&>blockquote]:py-4 [&>blockquote]:my-8 [&>blockquote]:italic [&>blockquote]:text-muted-foreground [&>blockquote]:bg-muted/20 [&>blockquote]:rounded-r-lg
+                       [&>ul]:my-6 [&>ul]:space-y-2 [&>ol]:my-6 [&>ol]:space-y-2
+                       [&>ul>li]:leading-relaxed [&>ol>li]:leading-relaxed
+                       [&>pre]:bg-muted/50 [&>pre]:border [&>pre]:border-border [&>pre]:rounded-xl [&>pre]:p-6 [&>pre]:my-8 [&>pre]:overflow-x-auto
+                       [&>code]:bg-muted/60 [&>code]:px-2 [&>code]:py-1 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono
+                       [&>table]:border-collapse [&>table]:border [&>table]:border-border [&>table]:my-8 [&>table]:w-full
+                       [&>table>thead>tr>th]:border [&>table>thead>tr>th]:border-border [&>table>thead>tr>th]:bg-muted/50 [&>table>thead>tr>th]:px-4 [&>table>thead>tr>th]:py-3 [&>table>thead>tr>th]:font-semibold [&>table>thead>tr>th]:text-left
+                       [&>table>tbody>tr>td]:border [&>table>tbody>tr>td]:border-border [&>table>tbody>tr>td]:px-4 [&>table>tbody>tr>td]:py-3
+                       [&>img]:rounded-lg [&>img]:border [&>img]:border-border/50 [&>img]:my-8
+                       [&_strong]:text-foreground [&_strong]:font-semibold
+                       [&_em]:italic"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
