@@ -8,8 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "pnpm run blog:update",
-    "blog:update": "node scripts/update-blog-index.js"
+    "prebuild": "pnpm run blog:update && pnpm run llms:generate",
+    "blog:update": "node scripts/update-blog-index.js",
+    "llms:generate": "tsx scripts/generate-llms-txt.ts",
+    "update-content": "pnpm run blog:update && pnpm run llms:generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -83,6 +85,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "lovable-tagger": "^1.1.7",
+    "tsx": "^4.20.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1"
   },

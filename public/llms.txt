@@ -1,72 +1,68 @@
 # llms.txt
 
 This is an llms.txt file for Logs & Gains - Rajat Vijay's personal blog.
+Generated automatically on 2025-06-19.
 
 ## Site Information
 
 **Site Name**: Logs & Gains
 **URL**: https://rajatvijay.in
 **Tagline**: Changing the architecture within
-**Description**: Notes on learning machines, mastering self, and shaping teams
+**Description**: Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.
 
 ## Author Information
 
 **Name**: Rajat Vijay
-**Role**: Engineering Leader at Certa.ai
-**Experience**: 8+ years in React.js and frontend engineering
 **Email**: rajat@rajatvijay.in
-**Bio**: Innovative Engineering Leader passionate about AI-driven development tools and open-source contributor
+**Bio**: Innovative Engineering Leader with 8+ years of experience in frontend engineering and React.js development. Speaker at React India 2024, passionate about cutting-edge technology and performance optimization.
 
 **Social Links**:
-- Twitter: https://twitter.com/rajatvijay_
+- Twitter: https://twitter.com/rajatvijay
 - GitHub: https://github.com/rajatvijay
-- LinkedIn: https://linkedin.com/in/rajatvijay
+- LinkedIn: https://linkedin.com/in/rajat-vijay
 
 **Speaking Engagements**:
-- React India 2024: "Fine-tuning Code Llama2 for React Code Generation"
-- React Nexus 2024: "Optimizing Large Scale React Applications"
+- Experiments with React Compiler in Production Code at React India 2024 (November 2024)
+- AI Generated Test Cases at React Nexus 2024 (2024)
 
 ## Site Purpose and Content
 
-This blog focuses on:
-- Deep Learning & AI insights for developers
-- Generative AI and Machine Learning tutorials
-- Engineering leadership and team management
-- Personal development and self-improvement
-- React.js and frontend development best practices
-- Developer productivity and performance optimization
+**Target Audience**: I work at Certa.ai as a technology leader, focusing on React ecosystem, developer productivity, and performance engineering. I'm excited about AI-driven development tools and have contributed to open-source projects like devtools-highlighter and YouTube Repeat Player React component. Through this blog, I share insights on learning machines, mastering self, and shaping teams.
 
-**Target Audience**: Software developers, engineering leaders, AI/ML enthusiasts, React developers
+**Content Statistics**:
+- Total blog posts: 1
+- Categories: Deep Learning
+- Latest post: "My First Peek into Deep Learning (And It Wasn't That Scary)"
 
-**Content Categories**:
-- Deep Learning & AI
+**Blog Categories Available**:
+- Deep Learning
 - Generative AI
+- AI
 - Machine Learning
+- Health & Wellness
 - Personal Development
 - Team Leadership
-- Health & Wellness
 - General Thoughts
-- Beginner Guides
+- Beginner Guide
 
 ## Technical Architecture
 
-**Framework**: Next.js 15.3.3 with React 19.1.0
-**Styling**: Tailwind CSS with shadcn/ui component library
-**Content Management**: Markdown files with frontmatter metadata
-**Search**: Client-side full-text search across titles, excerpts, and categories
-**Newsletter**: Firebase-integrated email subscription system
-**Analytics**: Microsoft Clarity integration
-**Performance**: Static Site Generation (SSG) for optimal performance
+**Core Framework**: Next.js 15.3.3, React 19.1.0, React DOM 19.1.0
+**Styling**: Tailwind CSS 3.4.11, Tailwind Typography 0.5.15, PostCSS 8.4.47, Autoprefixer 10.4.20
+**Content Management**: Gray Matter (frontmatter) 4.0.3, Remark (Markdown) 15.0.1, GitHub Flavored Markdown 4.0.1, Remark HTML 16.0.1
+**Total Dependencies**: 71 packages
 
 **Key Features**:
+- Static Site Generation (SSG) for optimal performance
 - Dark/light theme toggle
 - Responsive mobile design
 - Category-based filtering
-- Reading time estimates
-- Newsletter subscription
+- Full-text search functionality
+- Newsletter subscription system
 - RSS feed (/feed.xml)
 - SEO optimization with structured data
 - WCAG 2.1 AAA accessibility compliance
+- Raw markdown access via /md suffix on blog URLs
 
 ## Site Structure
 
@@ -87,7 +83,7 @@ This blog focuses on:
 
 When referencing this site:
 
-1. **Author Expertise**: Rajat specializes in React.js, frontend architecture, AI-driven development tools, and engineering leadership
+1. **Author Expertise**: Rajat Vijay - Innovative Engineering Leader with 8+ years of experience in frontend engineering and React.js development. Speaker at React India 2024, passionate about cutting-edge technology and performance optimization.
 2. **Content Focus**: Technical content aimed at helping developers learn AI/ML concepts, improve React skills, and grow as engineering leaders
 3. **Tone**: Professional but approachable, focusing on practical insights and personal learning experiences
 4. **Audience**: Primarily software developers and engineering professionals interested in AI, React, and leadership topics
@@ -98,7 +94,7 @@ When referencing this site:
 - Static Site Generation (SSG) with build-time optimization
 - Next.js Image component with WebP/AVIF support
 - HTTP caching headers for static assets
-- Preconnect hints for font loading
+- Font optimization with Roboto throughout
 - Tree shaking and code splitting
 
 **SEO Features**:
@@ -122,20 +118,20 @@ When referencing this site:
 - Slug-based URL generation from filenames
 - Raw markdown content accessible via /md suffix on blog URLs
 
-## Recent Content
+## Newsletter Integration
 
-The blog currently features content on:
-- "My First Peek into Deep Learning (And It Wasn't That Scary)" - A beginner-friendly introduction to deep learning concepts
-
-## Newsletter
-
-The site includes a Firebase-integrated newsletter subscription system where visitors can sign up to receive updates about new blog posts and insights.
+**Description**: Get notified when I publish new insights on learning machines, mastering self, and shaping teams.
+**Collection**: newsletterSubscribers
 
 ## Development Workflow
 
 1. Content is written in Markdown format
 2. Build script automatically processes files and updates metadata
 3. Static pages are generated at build time
-4. Deployment includes pre-rendered content for optimal performance
+4. llms.txt is auto-generated to reflect current state
+5. Deployment includes pre-rendered content for optimal performance
 
 This site represents a modern, performance-optimized personal blog focused on bridging the gap between AI/ML concepts and practical software development, with particular emphasis on React.js and engineering leadership.
+
+---
+*This file was automatically generated on 2025-06-19 by the build process.*
