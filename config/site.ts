@@ -93,7 +93,7 @@ export const siteConfig = {
   navigation: {
     main: [
       { name: "Home", href: "/" },
-      { name: "About", href: "/about" },
+      { name: "About Me", href: "/about" },
       { name: "Blog", href: "/#blog" },
     ],
   },

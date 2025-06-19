@@ -25,13 +25,15 @@ const About = () => {
               alt={`Professional portrait of ${siteConfig.author.name}, Engineering Leader and React enthusiast`}
               className="w-48 h-48 rounded-xl mx-auto mb-8 shadow-lg object-cover"
             />
-            <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-2xl mx-auto">
+            {/* <p className="text-lg text-muted-foreground leading-relaxed text-center max-w-2xl mx-auto">
               {siteConfig.about.intro}
-            </p>
+            </p> */}
           </div>
 
           {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* What You'll Find Here */}
           <div className="mb-16">
@@ -48,8 +50,13 @@ const About = () => {
                     {index + 1}
                   </span>
                   <div className="flex-1">
-                    <span className="font-semibold text-foreground">{topic.title}</span>
-                    <span className="text-muted-foreground"> – {topic.description}</span>
+                    <span className="font-semibold text-foreground">
+                      {topic.title}
+                    </span>
+                    <span className="text-muted-foreground">
+                      {" "}
+                      – {topic.description}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -57,7 +64,9 @@ const About = () => {
           </div>
 
           {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* Why I Write */}
           <div className="mb-16">
@@ -70,7 +79,9 @@ const About = () => {
           </div>
 
           {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* Professional Snapshot */}
           <div className="mb-16">
@@ -78,20 +89,31 @@ const About = () => {
               {siteConfig.about.sections.professional.title}
             </h2>
             <div className="space-y-6">
-              {siteConfig.about.sections.professional.items.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <span className="text-primary text-lg font-bold mt-0.5">•</span>
-                  <div className="flex-1">
-                    <span className="font-semibold text-foreground">{item.title}:</span>
-                    <span className="text-muted-foreground"> {item.description}</span>
+              {siteConfig.about.sections.professional.items.map(
+                (item, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <span className="text-primary text-lg font-bold mt-0.5">
+                      •
+                    </span>
+                    <div className="flex-1">
+                      <span className="font-semibold text-foreground">
+                        {item.title}:
+                      </span>
+                      <span className="text-muted-foreground">
+                        {" "}
+                        {item.description}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
 
           {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* Guiding Principles */}
           <div className="mb-16">
@@ -99,22 +121,31 @@ const About = () => {
               {siteConfig.about.sections.principles.title}
             </h2>
             <div className="space-y-6">
-              {siteConfig.about.sections.principles.items.map((principle, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-medium mt-0.5">
-                    {index + 1}
-                  </span>
-                  <div className="flex-1">
-                    <span className="font-semibold text-foreground">{principle.title}.</span>
-                    <span className="text-muted-foreground"> {principle.description}</span>
+              {siteConfig.about.sections.principles.items.map(
+                (principle, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <span className="flex-shrink-0 w-6 h-6 bg-primary/10 text-primary rounded-full flex items-center justify-center text-sm font-medium mt-0.5">
+                      {index + 1}
+                    </span>
+                    <div className="flex-1">
+                      <span className="font-semibold text-foreground">
+                        {principle.title}.
+                      </span>
+                      <span className="text-muted-foreground">
+                        {" "}
+                        {principle.description}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
 
           {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* Talks Section */}
           <div className="mb-16">
@@ -183,7 +214,9 @@ const About = () => {
           </div>
 
           {/* Final Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">⸻</div>
+          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
+            ⸻
+          </div>
 
           {/* Contact Section */}
           <div className="mb-16 text-center">

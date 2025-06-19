@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 import { siteConfig } from '../../config/site';
 
 interface NavigationProps {
@@ -21,6 +22,7 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
   const [isDark, setIsDark] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -72,11 +74,20 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
           <div className="flex items-center space-x-6">
             <a
               href="/about"
-              className="text-foreground hover:text-primary text-sm font-medium transition-colors duration-200 relative group hidden md:block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-2 py-1"
+              className={`text-sm font-medium transition-colors duration-200 relative group hidden md:block focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm px-2 py-1 ${
+                pathname === '/about' 
+                  ? 'text-primary' 
+                  : 'text-foreground hover:text-primary'
+              }`}
               aria-describedby="about-link-description"
+              aria-current={pathname === '/about' ? 'page' : undefined}
             >
-              About
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              About Me
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-transform duration-200 origin-left ${
+                pathname === '/about' 
+                  ? 'scale-x-100' 
+                  : 'scale-x-0 group-hover:scale-x-100'
+              }`}></span>
               <span id="about-link-description" className="sr-only">Learn more about Rajat Vijay and this blog</span>
             </a>
 
@@ -127,12 +138,17 @@ const Navigation = ({ categories, selectedCategory, setSelectedCategory, posts }
             <div className="px-2 pt-2 pb-3 border-t border-border bg-background/95" role="menu">
               <a
                 href="/about"
-                className="text-foreground hover:text-primary block px-3 py-2 text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm ${
+                  pathname === '/about' 
+                    ? 'text-primary bg-primary/10' 
+                    : 'text-foreground hover:text-primary hover:bg-muted/50'
+                }`}
                 onClick={closeMobileMenu}
                 role="menuitem"
                 aria-describedby="mobile-about-description"
+                aria-current={pathname === '/about' ? 'page' : undefined}
               >
-                About
+                About Me
                 <span id="mobile-about-description" className="sr-only">Learn more about Rajat Vijay and this blog</span>
               </a>
               
