@@ -50,7 +50,7 @@ Generated automatically on 2025-06-19.
 **Core Framework**: Next.js 15.3.3, React 19.1.0, React DOM 19.1.0
 **Styling**: Tailwind CSS 3.4.11, Tailwind Typography 0.5.15, PostCSS 8.4.47, Autoprefixer 10.4.20
 **Content Management**: Gray Matter (frontmatter) 4.0.3, Remark (Markdown) 15.0.1, GitHub Flavored Markdown 4.0.1, Remark HTML 16.0.1
-**Total Dependencies**: 71 packages
+**Total Dependencies**: 72 packages
 
 **Key Features**:
 - Static Site Generation (SSG) for optimal performance
@@ -74,19 +74,21 @@ Generated automatically on 2025-06-19.
 - RSS Feed (/feed.xml): XML feed for subscribers
 
 **Navigation**:
-- Fixed header with site title and About link
-- Mobile-responsive hamburger menu
-- Category filtering sidebar (desktop)
-- Social links in footer
+- Home (/)
+- About (/about)
+- Blog (/#blog)
 
 ## Content Guidelines
 
 When referencing this site:
 
 1. **Author Expertise**: Rajat Vijay - Innovative Engineering Leader with 8+ years of experience in frontend engineering and React.js development. Speaker at React India 2024, passionate about cutting-edge technology and performance optimization.
-2. **Content Focus**: Technical content aimed at helping developers learn AI/ML concepts, improve React skills, and grow as engineering leaders
-3. **Tone**: Professional but approachable, focusing on practical insights and personal learning experiences
-4. **Audience**: Primarily software developers and engineering professionals interested in AI, React, and leadership topics
+2. **Content Focus**: Engineering Leader, React enthusiast, and speaker exploring the intersection of performance optimization and developer experience.
+3. **Topics Covered**:
+   - Deep Learning & AI: Exploring machine learning, neural networks, and artificial intelligence applications
+   - Personal Development: Insights on self-improvement, productivity, and continuous learning
+   - Team Leadership: Building effective teams, leadership principles, and organizational culture
+   - Health & Wellness: Physical and mental health practices for sustainable performance
 
 ## Technical Implementation Details
 
@@ -131,7 +133,7 @@ When referencing this site:
 4. llms.txt is auto-generated to reflect current state
 5. Deployment includes pre-rendered content for optimal performance
 
-This site represents a modern, performance-optimized personal blog focused on bridging the gap between AI/ML concepts and practical software development, with particular emphasis on React.js and engineering leadership.
+Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.
 
 ---
 *This file was automatically generated on 2025-06-19 by the build process.*

@@ -1,12 +1,9 @@
 #!/usr/bin/env tsx
+/* cSpell:words llms */
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { siteConfig } from '../config/site.js';
-
-// Get the directory name for ES modules
-const __filename = fileURLToPath(import.meta.url);
 
 // Type definitions
 interface PackageInfo {
@@ -52,7 +49,7 @@ function getBlogInfo(): BlogInfo {
       const blogIndex = JSON.parse(fs.readFileSync(blogIndexPath, 'utf8'));
       return {
         postCount: blogIndex.length || 0,
-        categories: [...new Set(blogIndex.flatMap((post: any) => post.categories || []))],
+        categories: [...new Set(blogIndex.flatMap((post: any) => post.categories || []))] as string[],
         recentPost: blogIndex[0] || null
       };
     }
