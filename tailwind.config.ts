@@ -81,9 +81,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Crimson Text", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "Fira Code", "monospace"],
+        serif: ["Roboto", "sans-serif"],
+        sans: ["Roboto", "sans-serif"],
+        mono: ["Roboto", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
