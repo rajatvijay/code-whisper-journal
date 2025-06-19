@@ -1,0 +1,141 @@
+# llms.txt
+
+This is an llms.txt file for Logs & Gains - Rajat Vijay's personal blog.
+
+## Site Information
+
+**Site Name**: Logs & Gains
+**URL**: https://rajatvijay.in
+**Tagline**: Changing the architecture within
+**Description**: Notes on learning machines, mastering self, and shaping teams
+
+## Author Information
+
+**Name**: Rajat Vijay
+**Role**: Engineering Leader at Certa.ai
+**Experience**: 8+ years in React.js and frontend engineering
+**Email**: rajat@rajatvijay.in
+**Bio**: Innovative Engineering Leader passionate about AI-driven development tools and open-source contributor
+
+**Social Links**:
+- Twitter: https://twitter.com/rajatvijay_
+- GitHub: https://github.com/rajatvijay
+- LinkedIn: https://linkedin.com/in/rajatvijay
+
+**Speaking Engagements**:
+- React India 2024: "Fine-tuning Code Llama2 for React Code Generation"
+- React Nexus 2024: "Optimizing Large Scale React Applications"
+
+## Site Purpose and Content
+
+This blog focuses on:
+- Deep Learning & AI insights for developers
+- Generative AI and Machine Learning tutorials
+- Engineering leadership and team management
+- Personal development and self-improvement
+- React.js and frontend development best practices
+- Developer productivity and performance optimization
+
+**Target Audience**: Software developers, engineering leaders, AI/ML enthusiasts, React developers
+
+**Content Categories**:
+- Deep Learning & AI
+- Generative AI
+- Machine Learning
+- Personal Development
+- Team Leadership
+- Health & Wellness
+- General Thoughts
+- Beginner Guides
+
+## Technical Architecture
+
+**Framework**: Next.js 15.3.3 with React 19.1.0
+**Styling**: Tailwind CSS with shadcn/ui component library
+**Content Management**: Markdown files with frontmatter metadata
+**Search**: Client-side full-text search across titles, excerpts, and categories
+**Newsletter**: Firebase-integrated email subscription system
+**Analytics**: Microsoft Clarity integration
+**Performance**: Static Site Generation (SSG) for optimal performance
+
+**Key Features**:
+- Dark/light theme toggle
+- Responsive mobile design
+- Category-based filtering
+- Reading time estimates
+- Newsletter subscription
+- RSS feed (/feed.xml)
+- SEO optimization with structured data
+- WCAG 2.1 AAA accessibility compliance
+
+## Site Structure
+
+**Main Pages**:
+- Home (/): Blog index with search and filtering
+- About (/about): Author profile and speaking history
+- Blog Posts (/blog/[slug]): Individual articles
+- Markdown Source (/blog/[slug]/md): Raw markdown files for each blog post
+- RSS Feed (/feed.xml): XML feed for subscribers
+
+**Navigation**:
+- Fixed header with site title and About link
+- Mobile-responsive hamburger menu
+- Category filtering sidebar (desktop)
+- Social links in footer
+
+## Content Guidelines
+
+When referencing this site:
+
+1. **Author Expertise**: Rajat specializes in React.js, frontend architecture, AI-driven development tools, and engineering leadership
+2. **Content Focus**: Technical content aimed at helping developers learn AI/ML concepts, improve React skills, and grow as engineering leaders
+3. **Tone**: Professional but approachable, focusing on practical insights and personal learning experiences
+4. **Audience**: Primarily software developers and engineering professionals interested in AI, React, and leadership topics
+
+## Technical Implementation Details
+
+**Performance Optimizations**:
+- Static Site Generation (SSG) with build-time optimization
+- Next.js Image component with WebP/AVIF support
+- HTTP caching headers for static assets
+- Preconnect hints for font loading
+- Tree shaking and code splitting
+
+**SEO Features**:
+- JSON-LD structured data for articles and website
+- Comprehensive OpenGraph and Twitter Card metadata
+- Auto-generated sitemap.xml
+- Optimized robots.txt
+- Semantic HTML structure
+
+**Accessibility Features**:
+- Skip links for keyboard navigation
+- Proper ARIA labels and landmarks
+- High contrast color ratios (WCAG AAA compliant)
+- Focus management and keyboard navigation
+- Screen reader optimizations
+
+**Content Management**:
+- Markdown files in `/content/blog/` directory
+- Automated build script for metadata extraction
+- JSON index file for fast blog post loading
+- Slug-based URL generation from filenames
+- Raw markdown content accessible via /md suffix on blog URLs
+
+## Recent Content
+
+The blog currently features content on:
+- "My First Peek into Deep Learning (And It Wasn't That Scary)" - A beginner-friendly introduction to deep learning concepts
+
+## Newsletter
+
+The site includes a Firebase-integrated newsletter subscription system where visitors can sign up to receive updates about new blog posts and insights.
+
+## Development Workflow
+
+1. Content is written in Markdown format
+2. Build script automatically processes files and updates metadata
+3. Static pages are generated at build time
+4. Deployment includes pre-rendered content for optimal performance
+
+This site represents a modern, performance-optimized personal blog focused on bridging the gap between AI/ML concepts and practical software development, with particular emphasis on React.js and engineering leadership.

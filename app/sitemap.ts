@@ -7,13 +7,21 @@ export default async function sitemap() {
   // Get all blog posts
   const posts = await getAllBlogPosts()
   
-  // Create sitemap entries for blog posts
-  const blogUrls = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }))
+  // Create sitemap entries for blog posts (both HTML and markdown versions)
+  const blogUrls = posts.flatMap((post) => [
+    {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/${post.slug}/md`,
+      lastModified: new Date(post.date),
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    },
+  ])
 
   // Static pages
   const staticUrls = [
