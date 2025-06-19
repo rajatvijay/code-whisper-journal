@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Logs & Gains",
   title: "Logs & Gains - Changing the architecture within",
   description:
-    "Changing the architecture within. Notes on learning machines, mastering self, and shaping teams.",
+    "Tracking the gains that matter—mental, physical, and technical. A living journal of deep learning, personal growth, and mindful leadership.",
   tagline: "Changing the architecture within",
 
   // URLs
