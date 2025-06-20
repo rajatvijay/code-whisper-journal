@@ -103,11 +103,13 @@ export const siteConfig = {
     title: "About Me",
     subtitle:
       "Engineer‑turned‑leader, health data tinkerer, and unabashed optimist about the future of human–machine collaboration.",
-    intro: "Hi, I'm Rajat Vijay — engineer‑turned‑leader, health data tinkerer, and unabashed optimist about the future of human–machine collaboration.",
+    intro:
+      "Hi, I'm Rajat Vijay — engineer‑turned‑leader, health data tinkerer, and unabashed optimist about the future of human–machine collaboration.",
     sections: {
       topics: {
         title: "What You'll Find Here",
-        description: "This site is first and foremost a writing desk. You'll see:",
+        description:
+          "This site is first and foremost a writing desk. You'll see:",
         items: [
           {
             title: "Health, Fitness & Longevity Logs",
@@ -117,7 +119,7 @@ export const siteConfig = {
           {
             title: "My Deep‑Learning Diary",
             description:
-              "Notes from the trenches as I move from \"hello, tensors\" to shipping production‑grade models.",
+              'Notes from the trenches as I move from "hello, tensors" to shipping production‑grade models.',
           },
           {
             title: "Generative AI Field Notes",
@@ -138,26 +140,31 @@ export const siteConfig = {
       },
       writing: {
         title: "Why I Write",
-        description: "Writing helps me think, and publishing keeps me honest. Each post is a snapshot of the questions I'm wrestling with and the data (biological or digital) I'm collecting along the way.",
+        description:
+          "Writing helps me think, and publishing keeps me honest. Each post is a snapshot of the questions I'm wrestling with and the data (biological or digital) I'm collecting along the way.",
       },
       professional: {
         title: "The Professional Snapshot",
         items: [
           {
             title: "Current role",
-            description: "Director of Engineering, leading a 50+ person team building third‑party risk management software.",
+            description:
+              "Director of Engineering, leading a 50+ person team building third‑party risk management software.",
           },
           {
             title: "Origin story",
-            description: "Started as a frontend engineer obsessed with 60 fps interactions and shipped pixels. That eye for user experience now informs how I design AI‑driven workflows.",
+            description:
+              "Started as a frontend engineer obsessed with 60 fps interactions and shipped pixels. That eye for user experience now informs how I design AI‑driven workflows.",
           },
           {
             title: "Conference talks",
-            description: "React India 2024, React Nexus 2024 and a growing list of meet‑ups where I share the good, bad and buggy of building with React and AI.",
+            description:
+              "React India 2024, React Nexus 2024 and a growing list of meet‑ups where I share the good, bad and buggy of building with React and AI.",
           },
           {
             title: "What I'm building now",
-            description: "Production‑ready GenAI features that respect latency budgets, compliance boundaries and, above all, user joy.",
+            description:
+              "Production‑ready GenAI features that respect latency budgets, compliance boundaries and, above all, user joy.",
           },
         ],
       },
@@ -166,15 +173,18 @@ export const siteConfig = {
         items: [
           {
             title: "Data over dogma",
-            description: "Whether it's a pull‑request metric or a resting heart rate, numbers beat opinions.",
+            description:
+              "Whether it's a pull‑request metric or a resting heart rate, numbers beat opinions.",
           },
           {
             title: "Ship, then iterate",
-            description: "Every idea sounds clever until it's in the hands of a user.",
+            description:
+              "Every idea sounds clever until it's in the hands of a user.",
           },
           {
             title: "Build for delight",
-            description: "The best technology feels like magic because it respects people's time.",
+            description:
+              "The best technology feels like magic because it respects people's time.",
           },
           {
             title: "Teach what you learn",
@@ -255,7 +265,7 @@ export const siteConfig = {
   analytics: {
     clarity: {
       projectId: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "",
-      enabled: true, // process.env.NODE_ENV === "production",
+      enabled: process.env.NODE_ENV === "production",
     },
   },
 } as const;
