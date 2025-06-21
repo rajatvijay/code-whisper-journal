@@ -2,6 +2,7 @@
 import React from 'react';
 import { Clock, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader } from './ui/card';
+import { formatDate } from '@/lib/utils';
 
 interface BlogCardProps {
   title: string;
@@ -16,11 +17,7 @@ const BlogCard = ({ title, excerpt, date, readTime }: BlogCardProps) => {
       <CardHeader className="pb-4 px-4 pt-4 sm:px-6 sm:pt-6 md:px-7 md:pt-7">
         <div className="flex flex-col sm:flex-row sm:items-center text-sm text-muted-foreground mb-3 sm:mb-4 space-y-1 sm:space-y-0 sm:space-x-4">
           <time dateTime={date} className="font-medium text-xs sm:text-sm">
-            {new Date(date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
+            {formatDate(date)}
           </time>
           <div className="flex items-center space-x-1">
             <Clock className="w-3 h-3 sm:w-4 sm:h-4" />

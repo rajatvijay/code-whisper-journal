@@ -16,7 +16,8 @@
     "test:a11y": "tsx scripts/test-accessibility-local.ts",
     "test:audit": "concurrently \"pnpm run test:seo\" \"pnpm run test:a11y\"",
     "test:audit:sequential": "pnpm run test:seo && pnpm run test:a11y",
-    "test:quick": "tsx scripts/test-local-complete.ts"
+    "test:quick": "tsx scripts/test-local-complete.ts",
+    "optimize:images": "bash scripts/optimize-images.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -92,7 +93,6 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "lighthouse": "^12.6.1",
-    "lovable-tagger": "^1.1.7",
     "pa11y": "^9.0.0",
     "tsx": "^4.20.3",
     "typescript": "^5.5.3",

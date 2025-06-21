@@ -2,6 +2,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import { siteConfig } from '../../config/site';
+import { SocialLinks } from '@/components/common/SocialLinks';
 
 interface NavigationProps {
   categories?: string[];
@@ -38,9 +39,7 @@ const BlogLayout = ({ children, navigationProps }: BlogLayoutProps) => {
               {siteConfig.description}
             </p>
             <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
-              <a href={siteConfig.social.twitter} className="prose-link" target="_blank" rel="noopener noreferrer">Twitter</a>
-              <a href={siteConfig.social.github} className="prose-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href={siteConfig.social.linkedin} className="prose-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <SocialLinks variant="footer" className="space-x-6" />
               <a href={`${siteConfig.url}/feed.xml`} className="prose-link">RSS</a>
             </div>
           </div>

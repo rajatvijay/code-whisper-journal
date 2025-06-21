@@ -1,6 +1,8 @@
 import React from "react";
 import BlogLayout from "../components/BlogLayout";
 import { siteConfig } from "../../config/site";
+import { SocialLinks } from "@/components/common/SocialLinks";
+import { SectionDivider } from "@/components/common/SectionDivider";
 
 const About = () => {
   return (
@@ -30,10 +32,7 @@ const About = () => {
             </p> */}
           </div>
 
-          {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
-            ⸻
-          </div>
+          <SectionDivider />
 
           {/* What You'll Find Here */}
           <div className="mb-16">
@@ -63,10 +62,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
-            ⸻
-          </div>
+          <SectionDivider />
 
           {/* Why I Write */}
           <div className="mb-16">
@@ -78,10 +74,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
-            ⸻
-          </div>
+          <SectionDivider />
 
           {/* Professional Snapshot */}
           <div className="mb-16">
@@ -110,10 +103,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
-            ⸻
-          </div>
+          <SectionDivider />
 
           {/* Guiding Principles */}
           <div className="mb-16">
@@ -142,10 +132,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="text-center text-muted-foreground text-3xl mb-16 font-light">
-            ⸻
-          </div>
+          <SectionDivider />
 
           {/* Talks Section */}
           <div className="mb-16">
@@ -226,34 +213,11 @@ const About = () => {
             <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
               {siteConfig.about.sections.contact.description}
             </p>
-            <div className="flex justify-center space-x-8">
-              <a
-                href={siteConfig.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
-              >
-                Twitter
-              </a>
-              <a
-                href={siteConfig.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
-              >
-                GitHub
-              </a>
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
-              >
-                LinkedIn
-              </a>
+            <div className="flex justify-center">
+              <SocialLinks className="space-x-8" linkClassName="text-muted-foreground hover:text-primary transition-colors font-medium" />
               <a
                 href={siteConfig.social.email}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                className="ml-8 text-muted-foreground hover:text-primary transition-colors font-medium"
               >
                 Email
               </a>

@@ -106,16 +106,7 @@ export async function getBlogPostsByCategory(category: string): Promise<Omit<Blo
   }
 }
 
-// Generate numeric ID from slug for backward compatibility
-function generateIdFromSlug(slug: string): number {
-  // Simple hash function to generate consistent numeric IDs from slugs
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    const char = slug.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32-bit integer
-  }
-  return Math.abs(hash) % 1000 + 1; // Keep IDs between 1-1000
-}
+// Note: Additional utility functions for ID generation are available 
+// but currently unused. These can be re-enabled as needed.
 
 // Note: Client-side functions removed - using SSG instead for optimal performance

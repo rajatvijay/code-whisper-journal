@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import BlogLayout from '@/components/BlogLayout';
 import BlogCard from '@/components/BlogCard';
 import NewsletterSubscription from '../../components/NewsletterSubscription';
@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/markdown';
 import { siteConfig } from '../../config/site';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface IndexClientProps {
   posts: Omit<BlogPost, 'content'>[];
@@ -17,24 +18,56 @@ interface IndexClientProps {
 export default function IndexClient({ posts }: IndexClientProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  
+  // Debounce search term to avoid excessive filtering
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
 
-  // Get categories that have at least one blog post from the constant array
-  const allPostCategories = posts.flatMap(post => post.categories || []);
-  const categoriesWithPosts = siteConfig.blog.categories.filter(category => 
-    allPostCategories.includes(category)
-  );
-  const categories = ["All", ...categoriesWithPosts];
+  // Memoize categories calculation to avoid recalculation on every render
+  const categories = useMemo(() => {
+    const allPostCategories = posts.flatMap(post => post.categories || []);
+    const categoriesWithPosts = siteConfig.blog.categories.filter(category => 
+      allPostCategories.includes(category)
+    );
+    return ["All", ...categoriesWithPosts];
+  }, [posts]);
 
-  // Filter posts based on search and category
-  const filteredPosts = posts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         (post.categories && post.categories.some((cat: string) => cat.toLowerCase().includes(searchTerm.toLowerCase())));
-    
-    const matchesCategory = selectedCategory === "All" || (post.categories && post.categories.includes(selectedCategory));
-    
-    return matchesSearch && matchesCategory;
-  });
+  // Memoize category counts to avoid recalculation
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { "All": posts.length };
+    categories.forEach(category => {
+      if (category !== "All") {
+        counts[category] = posts.filter(p => p.categories?.includes(category)).length;
+      }
+    });
+    return counts;
+  }, [posts, categories]);
+
+  // Memoize filtered posts with debounced search
+  const filteredPosts = useMemo(() => {
+    return posts.filter(post => {
+      const matchesSearch = debouncedSearchTerm === "" || 
+        post.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        (post.categories?.some((cat: string) => 
+          cat.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+        ));
+      
+      const matchesCategory = selectedCategory === "All" || 
+        (post.categories?.includes(selectedCategory));
+      
+      return matchesSearch && matchesCategory;
+    });
+  }, [posts, debouncedSearchTerm, selectedCategory]);
+
+  // Memoize search input handler
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  }, []);
+
+  // Memoize category selection handler
+  const handleCategoryChange = useCallback((category: string) => {
+    setSelectedCategory(category);
+  }, []);
 
   const navigationProps = {
     categories,
@@ -69,7 +102,7 @@ export default function IndexClient({ posts }: IndexClientProps) {
                     type="text"
                     placeholder="Search articles..."
                     value={searchTerm}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+                    onChange={handleSearchChange}
                     className="pl-10 bg-background border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     aria-label="Search articles by title, content, or categories"
                     aria-describedby="search-help"
@@ -131,28 +164,22 @@ export default function IndexClient({ posts }: IndexClientProps) {
               <section role="navigation" aria-label="Category filter">
                 <h3 className="text-lg font-semibold mb-3 sm:mb-4 text-foreground">Categories</h3>
                 <div className="space-y-2">
-                  {categories.map((category) => {
-                    const categoryCount = category === "All" 
-                      ? posts.length 
-                      : posts.filter(p => p.categories && p.categories.includes(category)).length;
-                    
-                    return (
-                      <Button
-                        key={category}
-                        variant={selectedCategory === category ? "default" : "ghost"}
-                        size="sm"
-                        onClick={() => setSelectedCategory(category)}
-                        className="w-full justify-between text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                        aria-pressed={selectedCategory === category}
-                        type="button"
-                      >
-                        <span>{category}</span>
-                        <span className="text-xs opacity-70">
-                          {categoryCount}
-                        </span>
-                      </Button>
-                    );
-                  })}
+                  {categories.map((category) => (
+                    <Button
+                      key={category}
+                      variant={selectedCategory === category ? "default" : "ghost"}
+                      size="sm"
+                      onClick={() => handleCategoryChange(category)}
+                      className="w-full justify-between text-sm focus-ring"
+                      aria-pressed={selectedCategory === category}
+                      type="button"
+                    >
+                      <span>{category}</span>
+                      <span className="text-xs opacity-70">
+                        {categoryCounts[category]}
+                      </span>
+                    </Button>
+                  ))}
                 </div>
               </section>
             </div>

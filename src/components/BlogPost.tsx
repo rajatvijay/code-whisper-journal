@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import NewsletterSubscription from '../../components/NewsletterSubscription';
+import { formatDate } from '@/lib/utils';
 
 interface BlogPostProps {
   title: string;
@@ -59,11 +60,7 @@ const BlogPost = ({ title, content, date, readTime, tags }: BlogPostProps) => {
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
               <time dateTime={date} className="font-medium">
-                {new Date(date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
+                {formatDate(date)}
               </time>
             </div>
             <div className="flex items-center space-x-2">
