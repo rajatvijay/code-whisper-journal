@@ -1,7 +1,7 @@
 ---
 title: My First Peek into Deep Learning (And It Wasn't That Scary)
 excerpt: Following the fast.ai course and sharing my journey into deep learning in plain English — from neural networks to avoiding overfitting.
-date: 2024-03-20
+date: 2025-06-19
 readingTime: 8 # minutes
 categories:
   - Deep Learning

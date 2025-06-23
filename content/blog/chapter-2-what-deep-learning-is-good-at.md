@@ -1,7 +1,7 @@
 ---
 title: What Deep Learning Is Good At (And What It's Not)
 excerpt: Diving deeper into practical deep learning — understanding where it excels, where it struggles, and how to approach real-world problems with the right expectations and data strategy.
-date: 2024-03-27
+date: 2025-06-23
 readingTime: 12 # minutes
 categories:
   - Deep Learning
