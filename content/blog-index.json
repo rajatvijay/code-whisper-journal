@@ -1,5 +1,16 @@
 [
   {
+    "id": "805",
+    "slug": "chapter-2-what-deep-learning-is-good-at",
+    "title": "What Deep Learning Is Good At (And What It's Not)",
+    "excerpt": "Diving deeper into practical deep learning — understanding where it excels, where it struggles, and how to approach real-world problems with the right expectations and data strategy.",
+    "date": "2024-03-27T00:00:00.000Z",
+    "readTime": "5 min read",
+    "categories": [
+      "Deep Learning"
+    ]
+  },
+  {
     "id": "331",
     "slug": "my-first-peek-into-deep-learning",
     "title": "My First Peek into Deep Learning (And It Wasn't That Scary)",

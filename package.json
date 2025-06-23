@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "pnpm run blog:update && pnpm run llms:generate",
+    "prebuild": "pnpm run update-content",
     "blog:update": "node scripts/update-blog-index.js",
     "llms:generate": "tsx scripts/generate-llms-txt.ts",
     "update-content": "pnpm run blog:update && pnpm run llms:generate",

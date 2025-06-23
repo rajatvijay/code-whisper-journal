@@ -1,7 +1,7 @@
 # llms.txt
 
 This is an llms.txt file for Logs & Gains - Rajat Vijay's personal blog.
-Generated automatically on 2025-06-21.
+Generated automatically on 2025-06-23.
 
 ## Site Information
 
@@ -30,9 +30,9 @@ Generated automatically on 2025-06-21.
 **Target Audience**: I work at Certa.ai as a technology leader, focusing on React ecosystem, developer productivity, and performance engineering. I'm excited about AI-driven development tools and have contributed to open-source projects like devtools-highlighter and YouTube Repeat Player React component. Through this blog, I share insights on learning machines, mastering self, and shaping teams.
 
 **Content Statistics**:
-- Total blog posts: 1
+- Total blog posts: 2
 - Categories: Deep Learning
-- Latest post: "My First Peek into Deep Learning (And It Wasn't That Scary)"
+- Latest post: "What Deep Learning Is Good At (And What It's Not)"
 
 **Blog Categories Available**:
 - Deep Learning
@@ -50,7 +50,7 @@ Generated automatically on 2025-06-21.
 **Core Framework**: Next.js 15.3.3, React 19.1.0, React DOM 19.1.0
 **Styling**: Tailwind CSS 3.4.11, Tailwind Typography 0.5.15, PostCSS 8.4.47, Autoprefixer 10.4.20
 **Content Management**: Gray Matter (frontmatter) 4.0.3, Remark (Markdown) 15.0.1, GitHub Flavored Markdown 4.0.1, Remark HTML 16.0.1
-**Total Dependencies**: 77 packages
+**Total Dependencies**: 76 packages
 
 **Key Features**:
 - Static Site Generation (SSG) for optimal performance
@@ -137,4 +137,4 @@ When referencing this site:
 Tracking the gains that matter—mental, physical, and technical. A living journal of deep learning, personal growth, and mindful leadership.
 
 ---
-*This file was automatically generated on 2025-06-21 by the build process.*
+*This file was automatically generated on 2025-06-23 by the build process.*
