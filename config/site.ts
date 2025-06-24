@@ -25,6 +25,7 @@ export const siteConfig = {
     twitter: "https://twitter.com/rajatvijay",
     github: "https://github.com/rajatvijay",
     linkedin: "https://linkedin.com/in/rajat-vijay",
+    topmate: "https://topmate.io/rajatvijay",
     email: "mailto:rajat@rajatvijay.in",
   },
 

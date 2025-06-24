@@ -22,6 +22,11 @@ const socialLinks = [
     name: 'LinkedIn',
     url: siteConfig.social.linkedin, 
     label: 'Connect on LinkedIn'
+  },
+  {
+    name: 'Topmate',
+    url: siteConfig.social.topmate,
+    label: 'Book a session on Topmate'
   }
 ]
 
